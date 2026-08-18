@@ -1,0 +1,493 @@
+{
+  "@@locale": "en",
+  "appTitle": "Mobile Shop",
+  "appSubtitle": "Professional POS & Staff Management",
+  "appFullTitle": "Mobile Shop POS",
+  "versionLabel": "Version 1.0.0",
+
+  "welcomeBack": "Welcome Back",
+  "signInSubtitle": "Sign in to continue to your Mobile Shop account",
+  "email": "Email",
+  "password": "Password",
+  "confirmPassword": "Confirm Password",
+  "rememberMe": "Remember me",
+  "forgotPassword": "Forgot Password?",
+  "login": "Login",
+  "logout": "Logout",
+  "createAccount": "Create Account",
+  "dontHaveAccount": "Don't have an account?",
+  "alreadyHaveAccount": "Already have an account?",
+  "register": "Register",
+  "passwordsDoNotMatch": "Passwords do not match",
+  "accountCreated": "Account created successfully.",
+  "unableToSignIn": "Unable to sign in. Please try again.",
+  "unableToCreateAccount": "Unable to create account. Please try again.",
+  "resetPassword": "Reset Password",
+  "resetPasswordInstructions": "Enter your email address and we'll send you a link to reset your password.",
+  "sendResetLink": "Send Reset Link",
+  "resetLinkSent": "Password reset link sent to your email.",
+  "resetLinkSentToEmail": "Password reset link sent to {email}.\nPlease check your email.",
+  "@resetLinkSentToEmail": {
+    "placeholders": {
+      "email": {}
+    }
+  },
+  "emailAddress": "Email Address",
+  "emailHint": "user@example.com",
+  "pleaseEnterPassword": "Please enter password",
+  "registerSubtitle": "Register to join your Mobile Shop team",
+  "fullName": "Full Name",
+  "phoneOptional": "Phone (Optional)",
+  "role": "Role",
+  "logoutConfirm": "Are you sure you want to sign out?",
+
+  "dashboard": "Dashboard",
+  "home": "Home",
+  "products": "Products",
+  "orders": "Orders",
+  "staff": "Staff",
+  "more": "More",
+  "attendance": "Attendance",
+  "leave": "Leave",
+  "salary": "Salary",
+  "profile": "Profile",
+  "sales": "Sales",
+  "welcome": "Welcome",
+  "quickActions": "Quick Actions",
+  "goodMorning": "Good Morning",
+  "goodAfternoon": "Good Afternoon",
+  "goodEvening": "Good Evening",
+  "viewAll": "View All",
+  "startNewSale": "Start New Sale",
+  "leaveRequests": "Leave requests",
+  "salaryRequests": "Salary requests",
+  "noRecentOrders": "No recent orders yet.",
+  "allProductsStocked": "All products are sufficiently stocked.",
+  "loadingDashboard": "Loading dashboard...",
+  "periodDaily": "D",
+  "periodWeekly": "W",
+  "periodMonthly": "M",
+  "periodDailyFull": "Daily",
+  "periodWeeklyFull": "Weekly",
+  "periodMonthlyFull": "Monthly",
+  "periodYearly": "Yearly",
+
+  "manageStaff": "Manage Staff",
+  "employee": "Employee",
+  "administrator": "Administrator",
+  "admin": "Admin",
+  "user": "User",
+  "addStaff": "Add Staff",
+  "monthlySalary": "Monthly Salary",
+  "useSignupForStaff": "Use Signup screen for new staff",
+  "editProfileComingSoon": "Edit profile coming soon",
+  "updateStaffSalary": "Update {name}'s Salary",
+  "@updateStaffSalary": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "hrDashboard": "HR Dashboard",
+  "executiveHrOverview": "Executive HR Overview",
+  "staffProfile": "Staff Profile",
+
+  "checkIn": "Check In",
+  "checkOut": "Check Out",
+  "checkInNow": "Check In Now",
+  "present": "Present",
+  "absent": "Absent",
+  "workingHours": "Working Hours",
+  "attendanceHistory": "Attendance History",
+  "todayAttendance": "Today's Attendance",
+  "notCheckedIn": "Not checked in",
+  "inAt": "In at {time}",
+  "@inAt": {
+    "placeholders": {
+      "time": {}
+    }
+  },
+  "workedDuration": "{duration} worked",
+  "@workedDuration": {
+    "placeholders": {
+      "duration": {}
+    }
+  },
+  "ongoing": "Ongoing",
+  "applyLeave": "Apply Leave",
+  "leaveType": "Leave Type",
+  "startDate": "Start Date",
+  "endDate": "End Date",
+  "reason": "Reason",
+  "pending": "Pending",
+  "approved": "Approved",
+  "rejected": "Rejected",
+  "unableSubmitLeave": "Unable to submit leave: no authenticated user.",
+  "leaveSubmitted": "Leave request submitted.",
+  "leaveDays": "{count} day(s)",
+  "@leaveDays": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "manageLeaveRequests": "Manage Leave Requests",
+  "noPendingLeaveRequests": "No pending leave requests.",
+  "periodRange": "Period: {start} - {end}",
+  "@periodRange": {
+    "placeholders": {
+      "start": {},
+      "end": {}
+    }
+  },
+  "approveLeave": "Approve Leave",
+  "rejectLeave": "Reject Leave",
+  "leaveStatusSuccess": "Leave {status} successfully.",
+  "@leaveStatusSuccess": {
+    "placeholders": {
+      "status": {}
+    }
+  },
+
+  "pleaseSignInToViewSalary": "Please sign in to view salary details.",
+  "salaryOverview": "Salary Overview",
+  "generatePayroll": "Generate Payroll",
+  "manageSalaryRequests": "Manage Salary Requests",
+  "requestSalary": "Request Salary",
+  "salaryHistory": "Salary History",
+  "noSalaryRecords": "No salary records",
+  "noSalaryRecordsSubtitle": "Generated or paid salaries will appear here.",
+  "unableToLoadSalaryHistory": "Unable to load salary history. Please try again.",
+  "basicSalary": "Basic Salary",
+  "presentDays": "Present Days",
+  "estimatedPay": "Estimated Pay",
+  "deductions": "Deductions",
+  "unableToLoadSalaryPreview": "Unable to load salary preview. Please try again.",
+  "payrollGenerated": "Payroll generated!",
+  "monthYearSalary": "{monthYear} Salary",
+  "@monthYearSalary": {
+    "placeholders": {
+      "monthYear": {}
+    }
+  },
+  "netPay": "Net Pay",
+  "attendancePercentage": "Attendance %",
+  "baseSalary": "Base Salary",
+  "salaryRequests": "Salary Requests",
+  "noPendingSalaryRequests": "No pending salary requests.",
+  "amount": "Amount",
+  "reject": "Reject",
+  "approve": "Approve",
+  "approveRequest": "Approve Request",
+  "rejectRequest": "Reject Request",
+  "adminRemark": "Admin Remark",
+  "requestStatusSuccessfully": "Request {status} successfully.",
+  "@requestStatusSuccessfully": {
+    "placeholders": {
+      "status": {}
+    }
+  },
+  "newSalaryRequest": "New Salary Request",
+  "sendRequest": "Send Request",
+  "requestHistory": "Request History",
+  "noSalaryRequestsYet": "No salary requests yet.",
+  "salaryRequestSubmitted": "Salary request submitted successfully.",
+  "salaryRequestFailed": "Request failed: {error}",
+  "@salaryRequestFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "pleaseSignInSalaryRequests": "Please sign in to view salary requests.",
+  "requestedDate": "Requested: {date}",
+  "@requestedDate": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "adminNote": "Admin Note: {note}",
+  "@adminNote": {
+    "placeholders": {
+      "note": {}
+    }
+  },
+
+  "addProduct": "Add Product",
+  "editProduct": "Edit Product",
+  "deleteProduct": "Delete Product",
+  "deleteProductConfirm": "Are you sure you want to delete \"{name}\"?",
+  "@deleteProductConfirm": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "productDeleted": "{name} deleted successfully",
+  "@productDeleted": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "productName": "Product Name",
+  "brand": "Brand",
+  "model": "Model",
+  "price": "Price",
+  "stock": "Stock",
+  "available": "Available",
+  "outOfStock": "Out of Stock",
+  "saveProduct": "Save Product",
+  "productAdded": "Product added successfully.",
+  "productUpdated": "Product updated successfully",
+  "productAddedShort": "Product added successfully",
+  "productUpdatedShort": "Product updated successfully",
+  "brandLabel": "Brand: {brand}",
+  "@brandLabel": {
+    "placeholders": {
+      "brand": {}
+    }
+  },
+  "modelLabel": "Model: {model}",
+  "@modelLabel": {
+    "placeholders": {
+      "model": {}
+    }
+  },
+  "priceLabel": "Price: {price}",
+  "@priceLabel": {
+    "placeholders": {
+      "price": {}
+    }
+  },
+  "stockLabel": "Stock: {quantity}",
+  "@stockLabel": {
+    "placeholders": {
+      "quantity": {}
+    }
+  },
+  "stockCount": "{count} left",
+  "@stockCount": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "profitLabel": "Profit: {amount}",
+  "@profitLabel": {
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "qtyLabel": "Qty:",
+  "barcodeLabel": "Barcode:",
+
+  "warranty": "Warranty",
+  "warrantyManagement": "Warranty Management",
+  "addWarranty": "Add Warranty",
+  "warrantyDuration": "Warranty Duration",
+  "warrantyMonths": "{months} months",
+  "@warrantyMonths": {
+    "placeholders": {
+      "months": {}
+    }
+  },
+  "warrantyMonthsShort": "{months} mo",
+  "@warrantyMonthsShort": {
+    "placeholders": {
+      "months": {}
+    }
+  },
+  "warrantyLabel": "Warranty:",
+  "pleaseEnterProductName": "Please enter product name.",
+  "warrantyAdded": "Warranty added successfully.",
+  "warrantyDetails": "Warranty Details",
+  "deleteWarranty": "Delete Warranty",
+  "fileClaim": "File Claim",
+  "voidWarranty": "Void Warranty",
+  "claimHistory": "Claim History",
+  "costLabel": "Cost: {amount}",
+  "@costLabel": {
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "active": "Active",
+  "expired": "Expired",
+  "expiryDate": "Expiry Date",
+  "customerLabel": "Customer: {name}",
+  "@customerLabel": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+
+  "bundles": "Bundles",
+  "bundleName": "Bundle Name",
+  "createBundle": "Create Bundle",
+  "sellBundle": "Sell Bundle",
+  "bundleNotFound": "Bundle not found.",
+  "itemsInBundle": "Items in Bundle",
+  "addItem": "Add Item",
+  "includedItems": "Included Items",
+  "bundlePrice": "Bundle Price",
+  "subtotal": "Subtotal",
+  "finalPrice": "Final Price",
+  "discount": "Discount",
+  "discountPercent": "Discount ({percent}%)",
+  "@discountPercent": {
+    "placeholders": {
+      "percent": {}
+    }
+  },
+  "insufficientStock": "Insufficient stock for {product}",
+  "@insufficientStock": {
+    "placeholders": {
+      "product": {}
+    }
+  },
+  "bundleSold": "Bundle sold: {name}",
+  "@bundleSold": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "productBundles": "Product Bundles",
+
+  "payment": "Payment",
+  "paymentConfirmation": "Payment Confirmation",
+  "paymentProof": "Payment Proof",
+  "paymentMethod": "Payment Method",
+  "paymentBreakdown": "Payment Breakdown",
+  "cash": "Cash",
+  "card": "Card",
+  "transfer": "Transfer",
+  "jazzCash": "JazzCash",
+  "easyPaisa": "EasyPaisa",
+  "credit": "Credit",
+  "accountNumber": "Account Number",
+  "notesOptional": "Notes (Optional)",
+  "cardReferenceNumber": "Card Reference Number",
+  "confirmSale": "Confirm Sale",
+  "totalPrice": "Total Price",
+  "selectProductFirst": "Select a product first.",
+  "onePointDiscount": "1 point = {amount} discount",
+  "@onePointDiscount": {
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "salesScreen": "Sales Screen",
+  "sendReceipt": "Send Receipt",
+  "sendViaWhatsApp": "Send via WhatsApp",
+  "sendViaEmail": "Send via Email",
+  "sendViaSms": "Send via SMS",
+  "share": "Share",
+  "sendToPhoneNumber": "Send to Phone Number",
+  "phoneNumberHint": "Enter a valid phone number for receipt delivery.",
+  "send": "Send",
+  "emailNotAvailable": "Email address not available.",
+
+  "newSale": "New Sale",
+  "orderDetails": "Order Details",
+  "orderNumber": "Order #",
+  "quantity": "Quantity",
+  "total": "Total",
+  "customer": "Customer",
+  "viewDetails": "View Details",
+  "walkInCustomer": "Walk-in Customer",
+  "manage": "Manage",
+
+  "customers": "Customers",
+  "deleteCustomer": "Delete Customer?",
+  "searchCustomers": "Search by name or phone...",
+  "noCustomersFound": "No customers found",
+  "repayCredit": "Repay Credit",
+  "repay": "Repay",
+  "phone": "Phone",
+  "address": "Address",
+  "repeatCustomer": "Repeat Customer",
+  "favoriteProducts": "Favorite Products",
+  "noPurchasesYet": "No purchases yet",
+  "addCustomer": "Add Customer",
+  "updateCustomer": "Update Customer",
+  "pointsEarned": "+{points} pts",
+  "@pointsEarned": {
+    "placeholders": {
+      "points": {}
+    }
+  },
+
+  "reports": "Reports",
+  "noDataToExport": "No data to export.",
+  "recentTransactions": "Recent Transactions",
+  "noTransactionsPeriod": "No transactions for this period.",
+  "bestSellingProducts": "Best Selling Products",
+  "profitWord": "profit",
+
+  "firebaseBackups": "Firebase Backups",
+  "noBackupsFound": "No backups found",
+  "restoreBackup": "Restore Backup",
+  "restoreBackupConfirm": "This will replace local data. Continue?",
+  "backupHistory": "Backup History",
+
+  "notificationSettings": "Notification Settings",
+  "enableNotifications": "Enable Notifications",
+  "lowStockWarnings": "Low Stock Warnings",
+  "dailySalesReminder": "Daily Sales Reminder",
+  "exportLocalBackup": "Export Local Backup",
+  "backupToFirebase": "Backup to Firebase",
+  "restoreFromFirebase": "Restore From Firebase",
+  "notificationSettingsComingSoon": "Notification settings coming soon!",
+
+  "settings": "Settings",
+  "appearance": "Appearance",
+  "language": "Language",
+  "currency": "Currency",
+  "notifications": "Notifications",
+  "selectLanguage": "Select Language",
+  "selectCurrency": "Select Currency",
+  "searchCurrency": "Search currency...",
+  "searchLanguage": "Search language...",
+  "general": "General",
+  "account": "Account",
+  "theme": "Theme",
+  "light": "Light",
+  "dark": "Dark",
+  "systemDefault": "System Default",
+  "about": "About",
+  "shopTools": "Shop Tools",
+  "shopToolsSubtitle": "Warranty, bundles, reports, and account settings",
+  "editProfile": "Edit Profile",
+  "unableToLoadProfile": "Unable to load profile. Please try again.",
+
+  "accessDenied": "Access Denied",
+  "accessDeniedMessage": "You do not have permission to access this page.\nPlease contact your administrator.",
+  "goBack": "Go Back",
+  "cancel": "Cancel",
+  "save": "Save",
+  "submit": "Submit",
+  "delete": "Delete",
+  "edit": "Edit",
+  "view": "View",
+  "close": "Close",
+  "update": "Update",
+  "errorGeneric": "Error: {error}",
+  "@errorGeneric": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "continueAction": "Continue",
+  "yes": "Yes",
+  "no": "No",
+  "ok": "OK",
+
+  "onboardingTitle": "Welcome to Mobile Shop",
+  "onboardingSubtitle": "Choose your language and currency to personalize the app.",
+  "chooseLanguage": "Choose Language",
+  "chooseCurrency": "Choose Currency",
+  "getStarted": "Get Started",
+  "languageNameEnglish": "English",
+  "languageNameUrdu": "Urdu",
+  "languageNameArabic": "Arabic",
+  "languageNameSpanish": "Spanish",
+  "languageNameFrench": "French",
+  "languageNameGerman": "German",
+  "languageNameChinese": "Chinese",
+  "languageNameTurkish": "Turkish"
+}

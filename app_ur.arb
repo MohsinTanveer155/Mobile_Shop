@@ -1,0 +1,46 @@
+{
+    "@@locale": "ur",
+    "salary": "تنخواہ",
+    "pleaseSignInToViewSalary": "تنخواہ کی تفصیلات دیکھنے کے لیے براہ کرم سائن ان کریں۔",
+    "salaryOverview": "تنخواہ کا جائزہ",
+    "generatePayroll": "پے رول بنائیں",
+    "manageSalaryRequests": "تنخواہ کی درخواستوں کا نظم کریں",
+    "requestSalary": "تنخواہ کی درخواست کریں",
+    "salaryHistory": "تنخواہ کی تاریخ",
+    "noSalaryRecords": "تنخواہ کا کوئی ریکارڈ نہیں",
+    "noSalaryRecordsSubtitle": "تیار شدہ یا ادا شدہ تنخواہیں یہاں ظاہر ہوں گی۔",
+    "unableToLoadSalaryHistory": "تنخواہ کی تاریخ لوڈ کرنے میں ناکام। براہ کرم دوبارہ کوشش کریں.",
+    "basicSalary": "بنیادی تنخواہ",
+    "presentDays": "موجود دن",
+    "estimatedPay": "تخمینی تنخواہ",
+    "attendance": "حاضری",
+    "deductions": "کٹوتی",
+    "unableToLoadSalaryPreview": "تنخواہ کا پیش نظارہ لوڈ کرنے میں ناکام। براہ کرم دوبارہ کوشش کریں.",
+    "payrollGenerated": "پے رول بن گیا!",
+    "monthYearSalary": "{monthYear} کی تنخواہ",
+    "@monthYearSalary": {
+        "placeholders": {
+            "monthYear": {}
+        }
+    },
+    "netPay": "کل تنخواہ",
+    "attendancePercentage": "حاضری %",
+    "baseSalary": "بنیادی تنخواہ",
+    "salaryRequests": "تنخواہ کی درخواستیں",
+    "noPendingSalaryRequests": "کوئی زیر التواء تنخواہ کی درخواستیں نہیں ہیں۔",
+    "amount": "رقم",
+    "reason": "وجہ",
+    "reject": "مسترد کریں",
+    "approve": "منظور کریں",
+    "approveRequest": "درخواست منظور کریں",
+    "rejectRequest": "درخواست مسترد کریں",
+    "adminRemark": "ایڈمن ریمارک",
+    "cancel": "منسوخ کریں",
+    "submit": "جمع کرائیں",
+    "requestStatusSuccessfully": "درخواست کامیابی سے {status} ہوگئی۔",
+    "@requestStatusSuccessfully": {
+        "placeholders": {
+            "status": {}
+        }
+    }
+}

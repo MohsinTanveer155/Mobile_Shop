@@ -1,0 +1,56 @@
+{
+    "@@locale": "en",
+    "salary": "Salary",
+    "pleaseSignInToViewSalary": "Please sign in to view salary details.",
+    "salaryOverview": "Salary Overview",
+    "generatePayroll": "Generate Payroll",
+    "manageSalaryRequests": "Manage Salary Requests",
+    "requestSalary": "Request Salary",
+    "salaryHistory": "Salary History",
+    "noSalaryRecords": "No salary records",
+    "noSalaryRecordsSubtitle": "Generated or paid salaries will appear here.",
+    "unableToLoadSalaryHistory": "Unable to load salary history. Please try again.",
+    "basicSalary": "Basic Salary",
+    "presentDays": "Present Days",
+    "estimatedPay": "Estimated Pay",
+    "attendance": "Attendance",
+    "deductions": "Deductions",
+    "unableToLoadSalaryPreview": "Unable to load salary preview. Please try again.",
+    "payrollGenerated": "Payroll generated!",
+    "monthYearSalary": "{monthYear} Salary",
+    "@monthYearSalary": {
+        "placeholders": {
+            "monthYear": {}
+        }
+    },
+    "netPay": "Net Pay",
+    "attendancePercentage": "Attendance %",
+    "baseSalary": "Base Salary",
+    "settings": "Settings",
+    "appearance": "Appearance",
+    "language": "Language",
+    "currency": "Currency",
+    "notifications": "Notifications",
+    "logout": "Logout",
+    "selectLanguage": "Select Language",
+    "selectCurrency": "Select Currency",
+    "searchCurrency": "Search currency...",
+    "general": "General",
+    "salaryRequests": "Salary Requests",
+    "noPendingSalaryRequests": "No pending salary requests.",
+    "amount": "Amount",
+    "reason": "Reason",
+    "reject": "Reject",
+    "approve": "Approve",
+    "approveRequest": "Approve Request",
+    "rejectRequest": "Reject Request",
+    "adminRemark": "Admin Remark",
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "requestStatusSuccessfully": "Request {status} successfully.",
+    "@requestStatusSuccessfully": {
+        "placeholders": {
+            "status": {}
+        }
+    }
+}

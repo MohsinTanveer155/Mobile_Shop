@@ -1,0 +1,478 @@
+{
+  "@@locale": "de",
+  "appTitle": "Mobile Shop",
+  "appSubtitle": "Professionelles Kassensystem & Personalverwaltung",
+  "appFullTitle": "Mobile Shop POS",
+  "versionLabel": "Version 1.0.0",
+
+  "welcomeBack": "Willkommen zurück",
+  "signInSubtitle": "Melden Sie sich an, um zu Ihrem Mobile-Shop-Konto fortzufahren",
+  "email": "E-Mail",
+  "password": "Passwort",
+  "confirmPassword": "Passwort bestätigen",
+  "rememberMe": "Angemeldet bleiben",
+  "forgotPassword": "Passwort vergessen?",
+  "login": "Anmelden",
+  "logout": "Abmelden",
+  "createAccount": "Konto erstellen",
+  "dontHaveAccount": "Noch kein Konto?",
+  "alreadyHaveAccount": "Bereits ein Konto?",
+  "register": "Registrieren",
+  "passwordsDoNotMatch": "Passwörter stimmen nicht überein",
+  "accountCreated": "Konto erfolgreich erstellt.",
+  "unableToSignIn": "Anmeldung nicht möglich. Bitte versuchen Sie es erneut.",
+  "unableToCreateAccount": "Konto konnte nicht erstellt werden. Bitte versuchen Sie es erneut.",
+  "resetPassword": "Passwort zurücksetzen",
+  "sendResetLink": "Link zum Zurücksetzen senden",
+  "resetLinkSent": "Link zum Zurücksetzen des Passworts wurde an Ihre E-Mail gesendet.",
+  "logoutConfirm": "Möchten Sie sich wirklich abmelden?",
+
+  "dashboard": "Dashboard",
+  "home": "Startseite",
+  "products": "Produkte",
+  "orders": "Bestellungen",
+  "staff": "Personal",
+  "more": "Mehr",
+  "attendance": "Anwesenheit",
+  "leave": "Urlaub",
+  "salary": "Gehalt",
+  "profile": "Profil",
+  "sales": "Verkäufe",
+  "welcome": "Willkommen",
+  "quickActions": "Schnellaktionen",
+  "goodMorning": "Guten Morgen",
+  "goodAfternoon": "Guten Tag",
+  "goodEvening": "Guten Abend",
+  "viewAll": "Alle anzeigen",
+  "startNewSale": "Neuen Verkauf starten",
+  "leaveRequests": "Urlaubsanträge",
+  "salaryRequests": "Gehaltsanträge",
+  "noRecentOrders": "Noch keine aktuellen Bestellungen.",
+  "allProductsStocked": "Alle Produkte sind ausreichend auf Lager.",
+  "loadingDashboard": "Dashboard wird geladen...",
+  "periodDaily": "T",
+  "periodWeekly": "W",
+  "periodMonthly": "M",
+  "periodDailyFull": "Täglich",
+  "periodWeeklyFull": "Wöchentlich",
+  "periodMonthlyFull": "Monatlich",
+  "periodYearly": "Jährlich",
+
+  "manageStaff": "Personal verwalten",
+  "employee": "Mitarbeiter",
+  "administrator": "Administrator",
+  "admin": "Admin",
+  "user": "Benutzer",
+  "addStaff": "Personal hinzufügen",
+  "monthlySalary": "Monatsgehalt",
+  "useSignupForStaff": "Registrierungsbildschirm für neues Personal verwenden",
+  "editProfileComingSoon": "Profilbearbeitung demnächst verfügbar",
+  "updateStaffSalary": "Gehalt von {name} aktualisieren",
+  "@updateStaffSalary": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "hrDashboard": "HR-Dashboard",
+  "executiveHrOverview": "Geschäftsführungsübersicht HR",
+  "staffProfile": "Mitarbeiterprofil",
+
+  "checkIn": "Einchecken",
+  "checkOut": "Auschecken",
+  "checkInNow": "Jetzt einchecken",
+  "present": "Anwesend",
+  "absent": "Abwesend",
+  "workingHours": "Arbeitszeiten",
+  "attendanceHistory": "Anwesenheitshistorie",
+  "todayAttendance": "Heutige Anwesenheit",
+  "notCheckedIn": "Nicht eingecheckt",
+  "inAt": "Eingestempelt um {time}",
+  "@inAt": {
+    "placeholders": {
+      "time": {}
+    }
+  },
+  "workedDuration": "{duration} gearbeitet",
+  "@workedDuration": {
+    "placeholders": {
+      "duration": {}
+    }
+  },
+  "ongoing": "Laufend",
+  "applyLeave": "Urlaub beantragen",
+  "leaveType": "Urlaubsart",
+  "startDate": "Startdatum",
+  "endDate": "Enddatum",
+  "reason": "Grund",
+  "pending": "Ausstehend",
+  "approved": "Genehmigt",
+  "rejected": "Abgelehnt",
+  "unableSubmitLeave": "Urlaubsantrag konnte nicht gesendet werden: kein authentifizierter Benutzer.",
+  "leaveSubmitted": "Urlaubsantrag eingereicht.",
+  "leaveDays": "{count} Tag(e)",
+  "@leaveDays": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "manageLeaveRequests": "Urlaubsanträge verwalten",
+  "noPendingLeaveRequests": "Keine ausstehenden Urlaubsanträge.",
+  "periodRange": "Zeitraum: {start} - {end}",
+  "@periodRange": {
+    "placeholders": {
+      "start": {},
+      "end": {}
+    }
+  },
+  "approveLeave": "Urlaub genehmigen",
+  "rejectLeave": "Urlaub ablehnen",
+  "leaveStatusSuccess": "Urlaub erfolgreich {status}.",
+  "@leaveStatusSuccess": {
+    "placeholders": {
+      "status": {}
+    }
+  },
+
+  "pleaseSignInToViewSalary": "Bitte melden Sie sich an, um Gehaltsdetails anzuzeigen.",
+  "salaryOverview": "Gehaltsübersicht",
+  "generatePayroll": "Gehaltsabrechnung erstellen",
+  "manageSalaryRequests": "Gehaltsanträge verwalten",
+  "requestSalary": "Gehalt beantragen",
+  "salaryHistory": "Gehaltshistorie",
+  "noSalaryRecords": "Keine Gehaltsdatensätze",
+  "noSalaryRecordsSubtitle": "Erstellte oder ausgezahlte Gehälter werden hier angezeigt.",
+  "unableToLoadSalaryHistory": "Gehaltshistorie konnte nicht geladen werden. Bitte versuchen Sie es erneut.",
+  "basicSalary": "Grundgehalt",
+  "presentDays": "Anwesenheitstage",
+  "estimatedPay": "Geschätzte Auszahlung",
+  "deductions": "Abzüge",
+  "unableToLoadSalaryPreview": "Gehaltsvorschau konnte nicht geladen werden. Bitte versuchen Sie es erneut.",
+  "payrollGenerated": "Gehaltsabrechnung erstellt!",
+  "monthYearSalary": "Gehalt {monthYear}",
+  "@monthYearSalary": {
+    "placeholders": {
+      "monthYear": {}
+    }
+  },
+  "netPay": "Nettoauszahlung",
+  "attendancePercentage": "Anwesenheit %",
+  "baseSalary": "Grundgehalt",
+  "salaryRequests": "Gehaltsanträge",
+  "noPendingSalaryRequests": "Keine ausstehenden Gehaltsanträge.",
+  "amount": "Betrag",
+  "reject": "Ablehnen",
+  "approve": "Genehmigen",
+  "approveRequest": "Antrag genehmigen",
+  "rejectRequest": "Antrag ablehnen",
+  "adminRemark": "Admin-Anmerkung",
+  "requestStatusSuccessfully": "Antrag erfolgreich {status}.",
+  "@requestStatusSuccessfully": {
+    "placeholders": {
+      "status": {}
+    }
+  },
+  "newSalaryRequest": "Neuer Gehaltsantrag",
+  "sendRequest": "Antrag senden",
+  "requestHistory": "Antragshistorie",
+  "noSalaryRequestsYet": "Noch keine Gehaltsanträge.",
+  "salaryRequestSubmitted": "Gehaltsantrag erfolgreich eingereicht.",
+  "salaryRequestFailed": "Antrag fehlgeschlagen: {error}",
+  "@salaryRequestFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "pleaseSignInSalaryRequests": "Bitte melden Sie sich an, um Gehaltsanträge anzuzeigen.",
+  "requestedDate": "Beantragt: {date}",
+  "@requestedDate": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "adminNote": "Admin-Hinweis: {note}",
+  "@adminNote": {
+    "placeholders": {
+      "note": {}
+    }
+  },
+
+  "addProduct": "Produkt hinzufügen",
+  "editProduct": "Produkt bearbeiten",
+  "deleteProduct": "Produkt löschen",
+  "deleteProductConfirm": "Möchten Sie \"{name}\" wirklich löschen?",
+  "@deleteProductConfirm": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "productDeleted": "{name} erfolgreich gelöscht",
+  "@productDeleted": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "productName": "Produktname",
+  "brand": "Marke",
+  "model": "Modell",
+  "price": "Preis",
+  "stock": "Bestand",
+  "available": "Verfügbar",
+  "outOfStock": "Nicht auf Lager",
+  "saveProduct": "Produkt speichern",
+  "productAdded": "Produkt erfolgreich hinzugefügt.",
+  "productUpdated": "Produkt erfolgreich aktualisiert",
+  "productAddedShort": "Produkt erfolgreich hinzugefügt",
+  "productUpdatedShort": "Produkt erfolgreich aktualisiert",
+  "brandLabel": "Marke: {brand}",
+  "@brandLabel": {
+    "placeholders": {
+      "brand": {}
+    }
+  },
+  "modelLabel": "Modell: {model}",
+  "@modelLabel": {
+    "placeholders": {
+      "model": {}
+    }
+  },
+  "priceLabel": "Preis: {price}",
+  "@priceLabel": {
+    "placeholders": {
+      "price": {}
+    }
+  },
+  "stockLabel": "Bestand: {quantity}",
+  "@stockLabel": {
+    "placeholders": {
+      "quantity": {}
+    }
+  },
+  "stockCount": "{count} übrig",
+  "@stockCount": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "profitLabel": "Gewinn: {amount}",
+  "@profitLabel": {
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "qtyLabel": "Menge:",
+  "barcodeLabel": "Barcode:",
+
+  "warranty": "Garantie",
+  "warrantyManagement": "Garantieverwaltung",
+  "addWarranty": "Garantie hinzufügen",
+  "warrantyDuration": "Garantiedauer",
+  "warrantyMonths": "{months} Monate",
+  "@warrantyMonths": {
+    "placeholders": {
+      "months": {}
+    }
+  },
+  "warrantyMonthsShort": "{months} Mon.",
+  "@warrantyMonthsShort": {
+    "placeholders": {
+      "months": {}
+    }
+  },
+  "warrantyLabel": "Garantie:",
+  "pleaseEnterProductName": "Bitte geben Sie den Produktnamen ein.",
+  "warrantyAdded": "Garantie erfolgreich hinzugefügt.",
+  "warrantyDetails": "Garantiedetails",
+  "deleteWarranty": "Garantie löschen",
+  "fileClaim": "Reklamation einreichen",
+  "voidWarranty": "Garantie ungültig machen",
+  "claimHistory": "Reklamationshistorie",
+  "costLabel": "Kosten: {amount}",
+  "@costLabel": {
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "active": "Aktiv",
+  "expired": "Abgelaufen",
+  "expiryDate": "Ablaufdatum",
+  "customerLabel": "Kunde: {name}",
+  "@customerLabel": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+
+  "bundles": "Pakete",
+  "bundleName": "Paketname",
+  "createBundle": "Paket erstellen",
+  "sellBundle": "Paket verkaufen",
+  "bundleNotFound": "Paket nicht gefunden.",
+  "itemsInBundle": "Artikel im Paket",
+  "addItem": "Artikel hinzufügen",
+  "includedItems": "Enthaltene Artikel",
+  "bundlePrice": "Paketpreis",
+  "subtotal": "Zwischensumme",
+  "finalPrice": "Endpreis",
+  "discount": "Rabatt",
+  "discountPercent": "Rabatt ({percent}%)",
+  "@discountPercent": {
+    "placeholders": {
+      "percent": {}
+    }
+  },
+  "insufficientStock": "Unzureichender Bestand für {product}",
+  "@insufficientStock": {
+    "placeholders": {
+      "product": {}
+    }
+  },
+  "bundleSold": "Paket verkauft: {name}",
+  "@bundleSold": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "productBundles": "Produktpakete",
+
+  "payment": "Zahlung",
+  "paymentConfirmation": "Zahlungsbestätigung",
+  "paymentProof": "Zahlungsnachweis",
+  "paymentMethod": "Zahlungsmethode",
+  "paymentBreakdown": "Zahlungsaufschlüsselung",
+  "cash": "Bar",
+  "card": "Karte",
+  "transfer": "Überweisung",
+  "jazzCash": "JazzCash",
+  "easyPaisa": "EasyPaisa",
+  "credit": "Kredit",
+  "accountNumber": "Kontonummer",
+  "notesOptional": "Notizen (optional)",
+  "cardReferenceNumber": "Kartenreferenznummer",
+  "confirmSale": "Verkauf bestätigen",
+  "totalPrice": "Gesamtpreis",
+  "selectProductFirst": "Wählen Sie zuerst ein Produkt aus.",
+  "onePointDiscount": "1 Punkt = {amount} Rabatt",
+  "@onePointDiscount": {
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "salesScreen": "Verkaufsbildschirm",
+  "sendReceipt": "Beleg senden",
+  "sendViaWhatsApp": "Per WhatsApp senden",
+  "sendViaEmail": "Per E-Mail senden",
+  "sendViaSms": "Per SMS senden",
+  "share": "Teilen",
+  "sendToPhoneNumber": "An Telefonnummer senden",
+  "phoneNumberHint": "Geben Sie eine gültige Telefonnummer für den Belegversand ein.",
+  "send": "Senden",
+  "emailNotAvailable": "E-Mail-Adresse nicht verfügbar.",
+
+  "newSale": "Neuer Verkauf",
+  "orderDetails": "Bestelldetails",
+  "orderNumber": "Bestellung #",
+  "quantity": "Menge",
+  "total": "Gesamt",
+  "customer": "Kunde",
+  "viewDetails": "Details anzeigen",
+  "walkInCustomer": "Laufkunde",
+  "manage": "Verwalten",
+
+  "customers": "Kunden",
+  "deleteCustomer": "Kunde löschen?",
+  "searchCustomers": "Nach Name oder Telefon suchen...",
+  "noCustomersFound": "Keine Kunden gefunden",
+  "repayCredit": "Kredit zurückzahlen",
+  "repay": "Zurückzahlen",
+  "phone": "Telefon",
+  "address": "Adresse",
+  "repeatCustomer": "Stammkunde",
+  "favoriteProducts": "Lieblingsprodukte",
+  "noPurchasesYet": "Noch keine Käufe",
+  "addCustomer": "Kunde hinzufügen",
+  "updateCustomer": "Kunde aktualisieren",
+  "pointsEarned": "+{points} Pkt.",
+  "@pointsEarned": {
+    "placeholders": {
+      "points": {}
+    }
+  },
+
+  "reports": "Berichte",
+  "noDataToExport": "Keine Daten zum Exportieren.",
+  "recentTransactions": "Letzte Transaktionen",
+  "noTransactionsPeriod": "Keine Transaktionen in diesem Zeitraum.",
+  "bestSellingProducts": "Bestseller",
+  "profitWord": "Gewinn",
+
+  "firebaseBackups": "Firebase-Sicherungen",
+  "noBackupsFound": "Keine Sicherungen gefunden",
+  "restoreBackup": "Sicherung wiederherstellen",
+  "restoreBackupConfirm": "Dies ersetzt lokale Daten. Fortfahren?",
+  "backupHistory": "Sicherungshistorie",
+
+  "notificationSettings": "Benachrichtigungseinstellungen",
+  "enableNotifications": "Benachrichtigungen aktivieren",
+  "lowStockWarnings": "Warnungen bei niedrigem Bestand",
+  "dailySalesReminder": "Tägliche Verkaufserinnerung",
+  "exportLocalBackup": "Lokale Sicherung exportieren",
+  "backupToFirebase": "In Firebase sichern",
+  "restoreFromFirebase": "Aus Firebase wiederherstellen",
+  "notificationSettingsComingSoon": "Benachrichtigungseinstellungen demnächst verfügbar!",
+
+  "settings": "Einstellungen",
+  "appearance": "Erscheinungsbild",
+  "language": "Sprache",
+  "currency": "Währung",
+  "notifications": "Benachrichtigungen",
+  "selectLanguage": "Sprache auswählen",
+  "selectCurrency": "Währung auswählen",
+  "searchCurrency": "Währung suchen...",
+  "searchLanguage": "Sprache suchen...",
+  "general": "Allgemein",
+  "account": "Konto",
+  "theme": "Design",
+  "light": "Hell",
+  "dark": "Dunkel",
+  "systemDefault": "Systemstandard",
+  "about": "Über",
+  "shopTools": "Shop-Tools",
+  "shopToolsSubtitle": "Garantie, Pakete, Berichte und Kontoeinstellungen",
+  "editProfile": "Profil bearbeiten",
+  "unableToLoadProfile": "Profil konnte nicht geladen werden. Bitte versuchen Sie es erneut.",
+
+  "accessDenied": "Zugriff verweigert",
+  "goBack": "Zurück",
+  "cancel": "Abbrechen",
+  "save": "Speichern",
+  "submit": "Absenden",
+  "delete": "Löschen",
+  "edit": "Bearbeiten",
+  "view": "Anzeigen",
+  "close": "Schließen",
+  "update": "Aktualisieren",
+  "errorGeneric": "Fehler: {error}",
+  "@errorGeneric": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "continueAction": "Weiter",
+  "yes": "Ja",
+  "no": "Nein",
+  "ok": "OK",
+
+  "onboardingTitle": "Willkommen bei Mobile Shop",
+  "onboardingSubtitle": "Wählen Sie Sprache und Währung, um die App anzupassen.",
+  "chooseLanguage": "Sprache wählen",
+  "chooseCurrency": "Währung wählen",
+  "getStarted": "Loslegen",
+  "languageNameEnglish": "Englisch",
+  "languageNameUrdu": "Urdu",
+  "languageNameArabic": "Arabisch",
+  "languageNameSpanish": "Spanisch",
+  "languageNameFrench": "Französisch",
+  "languageNameGerman": "Deutsch",
+  "languageNameChinese": "Chinesisch",
+  "languageNameTurkish": "Türkisch"
+}

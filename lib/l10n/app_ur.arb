@@ -1,0 +1,478 @@
+{
+  "@@locale": "ur",
+  "appTitle": "موبائل شاپ",
+  "appSubtitle": "پیشہ ورانہ POS اور عملے کا انتظام",
+  "appFullTitle": "موبائل شاپ POS",
+  "versionLabel": "ورژن 1.0.0",
+
+  "welcomeBack": "خوش آمدید",
+  "signInSubtitle": "اپنے موبائل شاپ اکاؤنٹ میں داخل ہونے کے لیے سائن ان کریں",
+  "email": "ای میل",
+  "password": "پاس ورڈ",
+  "confirmPassword": "پاس ورڈ کی تصدیق",
+  "rememberMe": "مجھے یاد رکھیں",
+  "forgotPassword": "پاس ورڈ بھول گئے؟",
+  "login": "لاگ ان",
+  "logout": "لاگ آؤٹ",
+  "createAccount": "اکاؤنٹ بنائیں",
+  "dontHaveAccount": "اکاؤنٹ نہیں ہے؟",
+  "alreadyHaveAccount": "پہلے سے اکاؤنٹ ہے؟",
+  "register": "رجسٹر",
+  "passwordsDoNotMatch": "پاس ورڈ مماثل نہیں ہیں",
+  "accountCreated": "اکاؤنٹ کامیابی سے بن گیا۔",
+  "unableToSignIn": "سائن ان نہیں ہو سکا۔ براہ کرم دوبارہ کوشش کریں۔",
+  "unableToCreateAccount": "اکاؤنٹ نہیں بن سکا۔ براہ کرم دوبارہ کوشش کریں۔",
+  "resetPassword": "پاس ورڈ ری سیٹ",
+  "sendResetLink": "ری سیٹ لنک بھیجیں",
+  "resetLinkSent": "پاس ورڈ ری سیٹ لنک آپ کی ای میل پر بھیج دیا گیا۔",
+  "logoutConfirm": "کیا آپ واقعی سائن آؤٹ کرنا چاہتے ہیں؟",
+
+  "dashboard": "ڈیش بورڈ",
+  "home": "ہوم",
+  "products": "مصنوعات",
+  "orders": "آرڈرز",
+  "staff": "عملہ",
+  "more": "مزید",
+  "attendance": "حاضری",
+  "leave": "چھٹی",
+  "salary": "تنخواہ",
+  "profile": "پروفائل",
+  "sales": "فروخت",
+  "welcome": "خوش آمدید",
+  "quickActions": "فوری اقدامات",
+  "goodMorning": "صبح بخیر",
+  "goodAfternoon": "دوپہر بخیر",
+  "goodEvening": "شام بخیر",
+  "viewAll": "سب دیکھیں",
+  "startNewSale": "نئی فروخت شروع کریں",
+  "leaveRequests": "چھٹی کی درخواستیں",
+  "salaryRequests": "تنخواہ کی درخواستیں",
+  "noRecentOrders": "ابھی تک کوئی حالیہ آرڈر نہیں۔",
+  "allProductsStocked": "تمام مصنوعات کی مناسب اسٹاک موجود ہے۔",
+  "loadingDashboard": "ڈیش بورڈ لوڈ ہو رہا ہے...",
+  "periodDaily": "د",
+  "periodWeekly": "ہ",
+  "periodMonthly": "م",
+  "periodDailyFull": "روزانہ",
+  "periodWeeklyFull": "ہفتہ وار",
+  "periodMonthlyFull": "ماہانہ",
+  "periodYearly": "سالانہ",
+
+  "manageStaff": "عملے کا انتظام",
+  "employee": "ملازم",
+  "administrator": "منتظم",
+  "admin": "ایڈمن",
+  "user": "صارف",
+  "addStaff": "عملہ شامل کریں",
+  "monthlySalary": "ماہانہ تنخواہ",
+  "useSignupForStaff": "نئے عملے کے لیے سائن اپ اسکرین استعمال کریں",
+  "editProfileComingSoon": "پروفائل میں ترمیم جلد آ رہی ہے",
+  "updateStaffSalary": "{name} کی تنخواہ اپ ڈیٹ کریں",
+  "@updateStaffSalary": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "hrDashboard": "HR ڈیش بورڈ",
+  "executiveHrOverview": "انتظامی HR جائزہ",
+  "staffProfile": "عملے کی پروفائل",
+
+  "checkIn": "حاضری درج",
+  "checkOut": "رخصت",
+  "checkInNow": "ابھی حاضری درج کریں",
+  "present": "حاضر",
+  "absent": "غیر حاضر",
+  "workingHours": "کام کے اوقات",
+  "attendanceHistory": "حاضری کی تاریخ",
+  "todayAttendance": "آج کی حاضری",
+  "notCheckedIn": "حاضری درج نہیں",
+  "inAt": "{time} پر آئے",
+  "@inAt": {
+    "placeholders": {
+      "time": {}
+    }
+  },
+  "workedDuration": "{duration} کام کیا",
+  "@workedDuration": {
+    "placeholders": {
+      "duration": {}
+    }
+  },
+  "ongoing": "جاری",
+  "applyLeave": "چھٹی کی درخواست",
+  "leaveType": "چھٹی کی قسم",
+  "startDate": "شروع کی تاریخ",
+  "endDate": "اختتام کی تاریخ",
+  "reason": "وجہ",
+  "pending": "زیر التواء",
+  "approved": "منظور",
+  "rejected": "مسترد",
+  "unableSubmitLeave": "چھٹی جمع نہیں ہو سکی: کوئی تصدیق شدہ صارف نہیں۔",
+  "leaveSubmitted": "چھٹی کی درخواست جمع ہو گئی۔",
+  "leaveDays": "{count} دن",
+  "@leaveDays": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "manageLeaveRequests": "چھٹی کی درخواستوں کا انتظام",
+  "noPendingLeaveRequests": "کوئی زیر التواء چھٹی کی درخواست نہیں۔",
+  "periodRange": "مدت: {start} - {end}",
+  "@periodRange": {
+    "placeholders": {
+      "start": {},
+      "end": {}
+    }
+  },
+  "approveLeave": "چھٹی منظور کریں",
+  "rejectLeave": "چھٹی مسترد کریں",
+  "leaveStatusSuccess": "چھٹی {status} ہو گئی۔",
+  "@leaveStatusSuccess": {
+    "placeholders": {
+      "status": {}
+    }
+  },
+
+  "pleaseSignInToViewSalary": "تنخواہ کی تفصیلات دیکھنے کے لیے سائن ان کریں۔",
+  "salaryOverview": "تنخواہ کا جائزہ",
+  "generatePayroll": "پے رول بنائیں",
+  "manageSalaryRequests": "تنخواہ کی درخواستوں کا انتظام",
+  "requestSalary": "تنخواہ کی درخواست",
+  "salaryHistory": "تنخواہ کی تاریخ",
+  "noSalaryRecords": "کوئی تنخواہ کا ریکارڈ نہیں",
+  "noSalaryRecordsSubtitle": "بنائی یا ادا کی گئی تنخواہیں یہاں ظاہر ہوں گی۔",
+  "unableToLoadSalaryHistory": "تنخواہ کی تاریخ لوڈ نہیں ہو سکی۔ براہ کرم دوبارہ کوشش کریں۔",
+  "basicSalary": "بنیادی تنخواہ",
+  "presentDays": "حاضری کے دن",
+  "estimatedPay": "تخمینی ادائیگی",
+  "deductions": "کٹوتیاں",
+  "unableToLoadSalaryPreview": "تنخواہ کا پیش نظارہ لوڈ نہیں ہو سکا۔ براہ کرم دوبارہ کوشش کریں۔",
+  "payrollGenerated": "پے رول بن گیا!",
+  "monthYearSalary": "{monthYear} کی تنخواہ",
+  "@monthYearSalary": {
+    "placeholders": {
+      "monthYear": {}
+    }
+  },
+  "netPay": "خالص ادائیگی",
+  "attendancePercentage": "حاضری %",
+  "baseSalary": "بنیادی تنخواہ",
+  "salaryRequests": "تنخواہ کی درخواستیں",
+  "noPendingSalaryRequests": "کوئی زیر التواء تنخواہ کی درخواست نہیں۔",
+  "amount": "رقم",
+  "reject": "مسترد",
+  "approve": "منظور",
+  "approveRequest": "درخواست منظور کریں",
+  "rejectRequest": "درخواست مسترد کریں",
+  "adminRemark": "ایڈمن کا تبصرہ",
+  "requestStatusSuccessfully": "درخواست {status} ہو گئی۔",
+  "@requestStatusSuccessfully": {
+    "placeholders": {
+      "status": {}
+    }
+  },
+  "newSalaryRequest": "نئی تنخواہ کی درخواست",
+  "sendRequest": "درخواست بھیجیں",
+  "requestHistory": "درخواستوں کی تاریخ",
+  "noSalaryRequestsYet": "ابھی تک کوئی تنخواہ کی درخواست نہیں۔",
+  "salaryRequestSubmitted": "تنخواہ کی درخواست کامیابی سے جمع ہو گئی۔",
+  "salaryRequestFailed": "درخواست ناکام: {error}",
+  "@salaryRequestFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "pleaseSignInSalaryRequests": "تنخواہ کی درخواستیں دیکھنے کے لیے سائن ان کریں۔",
+  "requestedDate": "درخواست کی تاریخ: {date}",
+  "@requestedDate": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "adminNote": "ایڈمن نوٹ: {note}",
+  "@adminNote": {
+    "placeholders": {
+      "note": {}
+    }
+  },
+
+  "addProduct": "مصنوعات شامل کریں",
+  "editProduct": "مصنوعات میں ترمیم",
+  "deleteProduct": "مصنوعات حذف کریں",
+  "deleteProductConfirm": "کیا آپ واقعی \"{name}\" حذف کرنا چاہتے ہیں؟",
+  "@deleteProductConfirm": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "productDeleted": "{name} کامیابی سے حذف ہو گیا",
+  "@productDeleted": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "productName": "مصنوعات کا نام",
+  "brand": "برانڈ",
+  "model": "ماڈل",
+  "price": "قیمت",
+  "stock": "اسٹاک",
+  "available": "دستیاب",
+  "outOfStock": "اسٹاک ختم",
+  "saveProduct": "مصنوعات محفوظ کریں",
+  "productAdded": "مصنوعات کامیابی سے شامل ہو گئی۔",
+  "productUpdated": "مصنوعات کامیابی سے اپ ڈیٹ ہو گئی",
+  "productAddedShort": "مصنوعات کامیابی سے شامل ہو گئی",
+  "productUpdatedShort": "مصنوعات کامیابی سے اپ ڈیٹ ہو گئی",
+  "brandLabel": "برانڈ: {brand}",
+  "@brandLabel": {
+    "placeholders": {
+      "brand": {}
+    }
+  },
+  "modelLabel": "ماڈل: {model}",
+  "@modelLabel": {
+    "placeholders": {
+      "model": {}
+    }
+  },
+  "priceLabel": "قیمت: {price}",
+  "@priceLabel": {
+    "placeholders": {
+      "price": {}
+    }
+  },
+  "stockLabel": "اسٹاک: {quantity}",
+  "@stockLabel": {
+    "placeholders": {
+      "quantity": {}
+    }
+  },
+  "stockCount": "{count} باقی",
+  "@stockCount": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "profitLabel": "منافع: {amount}",
+  "@profitLabel": {
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "qtyLabel": "مقدار:",
+  "barcodeLabel": "بارکوڈ:",
+
+  "warranty": "وارنٹی",
+  "warrantyManagement": "وارنٹی کا انتظام",
+  "addWarranty": "وارنٹی شامل کریں",
+  "warrantyDuration": "وارنٹی کی مدت",
+  "warrantyMonths": "{months} ماہ",
+  "@warrantyMonths": {
+    "placeholders": {
+      "months": {}
+    }
+  },
+  "warrantyMonthsShort": "{months} ماہ",
+  "@warrantyMonthsShort": {
+    "placeholders": {
+      "months": {}
+    }
+  },
+  "warrantyLabel": "وارنٹی:",
+  "pleaseEnterProductName": "براہ کرم مصنوعات کا نام درج کریں۔",
+  "warrantyAdded": "وارنٹی کامیابی سے شامل ہو گئی۔",
+  "warrantyDetails": "وارنٹی کی تفصیلات",
+  "deleteWarranty": "وارنٹی حذف کریں",
+  "fileClaim": "دعویٰ درج کریں",
+  "voidWarranty": "وارنٹی منسوخ کریں",
+  "claimHistory": "دعویٰ کی تاریخ",
+  "costLabel": "لاگت: {amount}",
+  "@costLabel": {
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "active": "فعال",
+  "expired": "میعاد ختم",
+  "expiryDate": "میعاد ختم ہونے کی تاریخ",
+  "customerLabel": "گاہک: {name}",
+  "@customerLabel": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+
+  "bundles": "بنڈلز",
+  "bundleName": "بنڈل کا نام",
+  "createBundle": "بنڈل بنائیں",
+  "sellBundle": "بنڈل فروخت کریں",
+  "bundleNotFound": "بنڈل نہیں ملا۔",
+  "itemsInBundle": "بنڈل میں اشیاء",
+  "addItem": "شے شامل کریں",
+  "includedItems": "شامل اشیاء",
+  "bundlePrice": "بنڈل کی قیمت",
+  "subtotal": "ذیلی کل",
+  "finalPrice": "حتمی قیمت",
+  "discount": "رعایت",
+  "discountPercent": "رعایت ({percent}%)",
+  "@discountPercent": {
+    "placeholders": {
+      "percent": {}
+    }
+  },
+  "insufficientStock": "{product} کے لیے ناکافی اسٹاک",
+  "@insufficientStock": {
+    "placeholders": {
+      "product": {}
+    }
+  },
+  "bundleSold": "بنڈل فروخت ہوا: {name}",
+  "@bundleSold": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "productBundles": "مصنوعات کے بنڈلز",
+
+  "payment": "ادائیگی",
+  "paymentConfirmation": "ادائیگی کی تصدیق",
+  "paymentProof": "ادائیگی کا ثبوت",
+  "paymentMethod": "ادائیگی کا طریقہ",
+  "paymentBreakdown": "ادائیگی کی تفصیل",
+  "cash": "نقد",
+  "card": "کارڈ",
+  "transfer": "منتقلی",
+  "jazzCash": "JazzCash",
+  "easyPaisa": "EasyPaisa",
+  "credit": "ادھار",
+  "accountNumber": "اکاؤنٹ نمبر",
+  "notesOptional": "نوٹس (اختیاری)",
+  "cardReferenceNumber": "کارڈ حوالہ نمبر",
+  "confirmSale": "فروخت کی تصدیق",
+  "totalPrice": "کل قیمت",
+  "selectProductFirst": "پہلے مصنوعات منتخب کریں۔",
+  "onePointDiscount": "1 پوائنٹ = {amount} رعایت",
+  "@onePointDiscount": {
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "salesScreen": "فروخت کی اسکرین",
+  "sendReceipt": "رسید بھیجیں",
+  "sendViaWhatsApp": "WhatsApp کے ذریعے بھیجیں",
+  "sendViaEmail": "ای میل کے ذریعے بھیجیں",
+  "sendViaSms": "SMS کے ذریعے بھیجیں",
+  "share": "شیئر کریں",
+  "sendToPhoneNumber": "فون نمبر پر بھیجیں",
+  "phoneNumberHint": "رسید بھیجنے کے لیے درست فون نمبر درج کریں۔",
+  "send": "بھیجیں",
+  "emailNotAvailable": "ای میل ایڈریس دستیاب نہیں۔",
+
+  "newSale": "نئی فروخت",
+  "orderDetails": "آرڈر کی تفصیلات",
+  "orderNumber": "آرڈر #",
+  "quantity": "مقدار",
+  "total": "کل",
+  "customer": "گاہک",
+  "viewDetails": "تفصیلات دیکھیں",
+  "walkInCustomer": "واک ان گاہک",
+  "manage": "انتظام",
+
+  "customers": "گاہک",
+  "deleteCustomer": "گاہک حذف کریں؟",
+  "searchCustomers": "نام یا فون سے تلاش کریں...",
+  "noCustomersFound": "کوئی گاہک نہیں ملا",
+  "repayCredit": "ادھار واپس کریں",
+  "repay": "واپس کریں",
+  "phone": "فون",
+  "address": "پتہ",
+  "repeatCustomer": "بار بار آنے والا گاہک",
+  "favoriteProducts": "پسندیدہ مصنوعات",
+  "noPurchasesYet": "ابھی تک کوئی خریداری نہیں",
+  "addCustomer": "گاہک شامل کریں",
+  "updateCustomer": "گاہک اپ ڈیٹ کریں",
+  "pointsEarned": "+{points} پوائنٹس",
+  "@pointsEarned": {
+    "placeholders": {
+      "points": {}
+    }
+  },
+
+  "reports": "رپورٹس",
+  "noDataToExport": "برآمد کے لیے کوئی ڈیٹا نہیں۔",
+  "recentTransactions": "حالیہ لین دین",
+  "noTransactionsPeriod": "اس مدت کے لیے کوئی لین دین نہیں۔",
+  "bestSellingProducts": "سب سے زیادہ فروخت ہونے والی مصنوعات",
+  "profitWord": "منافع",
+
+  "firebaseBackups": "Firebase بیک اپ",
+  "noBackupsFound": "کوئی بیک اپ نہیں ملا",
+  "restoreBackup": "بیک اپ بحال کریں",
+  "restoreBackupConfirm": "یہ مقامی ڈیٹا کو تبدیل کر دے گا۔ جاری رکھیں؟",
+  "backupHistory": "بیک اپ کی تاریخ",
+
+  "notificationSettings": "اطلاعات کی ترتیبات",
+  "enableNotifications": "اطلاعات فعال کریں",
+  "lowStockWarnings": "کم اسٹاک کی تنبیہات",
+  "dailySalesReminder": "روزانہ فروخت کی یاد دہانی",
+  "exportLocalBackup": "مقامی بیک اپ برآمد کریں",
+  "backupToFirebase": "Firebase پر بیک اپ",
+  "restoreFromFirebase": "Firebase سے بحال کریں",
+  "notificationSettingsComingSoon": "اطلاعات کی ترتیبات جلد آ رہی ہیں!",
+
+  "settings": "ترتیبات",
+  "appearance": "ظاہری شکل",
+  "language": "زبان",
+  "currency": "کرنسی",
+  "notifications": "اطلاعات",
+  "selectLanguage": "زبان منتخب کریں",
+  "selectCurrency": "کرنسی منتخب کریں",
+  "searchCurrency": "کرنسی تلاش کریں...",
+  "searchLanguage": "زبان تلاش کریں...",
+  "general": "عمومی",
+  "account": "اکاؤنٹ",
+  "theme": "تھیم",
+  "light": "روشن",
+  "dark": "تاریک",
+  "systemDefault": "سسٹم ڈیفالٹ",
+  "about": "متعلق",
+  "shopTools": "شاپ کے اوزار",
+  "shopToolsSubtitle": "وارنٹی، بنڈلز، رپورٹس اور اکاؤنٹ کی ترتیبات",
+  "editProfile": "پروفائل میں ترمیم",
+  "unableToLoadProfile": "پروفائل لوڈ نہیں ہو سکی۔ براہ کرم دوبارہ کوشش کریں۔",
+
+  "accessDenied": "رسائی مسترد",
+  "goBack": "واپس جائیں",
+  "cancel": "منسوخ",
+  "save": "محفوظ",
+  "submit": "جمع کرائیں",
+  "delete": "حذف",
+  "edit": "ترمیم",
+  "view": "دیکھیں",
+  "close": "بند",
+  "update": "اپ ڈیٹ",
+  "errorGeneric": "خرابی: {error}",
+  "@errorGeneric": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "continueAction": "جاری رکھیں",
+  "yes": "ہاں",
+  "no": "نہیں",
+  "ok": "ٹھیک ہے",
+
+  "onboardingTitle": "موبائل شاپ میں خوش آمدید",
+  "onboardingSubtitle": "ایپ کو ذاتی بنانے کے لیے اپنی زبان اور کرنسی منتخب کریں۔",
+  "chooseLanguage": "زبان منتخب کریں",
+  "chooseCurrency": "کرنسی منتخب کریں",
+  "getStarted": "شروع کریں",
+  "languageNameEnglish": "انگریزی",
+  "languageNameUrdu": "اردو",
+  "languageNameArabic": "عربی",
+  "languageNameSpanish": "ہسپانوی",
+  "languageNameFrench": "فرانسیسی",
+  "languageNameGerman": "جرمن",
+  "languageNameChinese": "چینی",
+  "languageNameTurkish": "ترکی"
+}

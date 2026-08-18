@@ -1,0 +1,478 @@
+{
+  "@@locale": "tr",
+  "appTitle": "Mobile Shop",
+  "appSubtitle": "Profesyonel POS ve Personel Yönetimi",
+  "appFullTitle": "Mobile Shop POS",
+  "versionLabel": "Sürüm 1.0.0",
+
+  "welcomeBack": "Tekrar hoş geldiniz",
+  "signInSubtitle": "Mobile Shop hesabınıza devam etmek için giriş yapın",
+  "email": "E-posta",
+  "password": "Şifre",
+  "confirmPassword": "Şifreyi Onayla",
+  "rememberMe": "Beni hatırla",
+  "forgotPassword": "Şifrenizi mi unuttunuz?",
+  "login": "Giriş Yap",
+  "logout": "Çıkış Yap",
+  "createAccount": "Hesap Oluştur",
+  "dontHaveAccount": "Hesabınız yok mu?",
+  "alreadyHaveAccount": "Zaten hesabınız var mı?",
+  "register": "Kayıt Ol",
+  "passwordsDoNotMatch": "Şifreler eşleşmiyor",
+  "accountCreated": "Hesap başarıyla oluşturuldu.",
+  "unableToSignIn": "Giriş yapılamadı. Lütfen tekrar deneyin.",
+  "unableToCreateAccount": "Hesap oluşturulamadı. Lütfen tekrar deneyin.",
+  "resetPassword": "Şifreyi Sıfırla",
+  "sendResetLink": "Sıfırlama Bağlantısı Gönder",
+  "resetLinkSent": "Şifre sıfırlama bağlantısı e-postanıza gönderildi.",
+  "logoutConfirm": "Çıkış yapmak istediğinizden emin misiniz?",
+
+  "dashboard": "Kontrol Paneli",
+  "home": "Ana Sayfa",
+  "products": "Ürünler",
+  "orders": "Siparişler",
+  "staff": "Personel",
+  "more": "Daha Fazla",
+  "attendance": "Devam",
+  "leave": "İzin",
+  "salary": "Maaş",
+  "profile": "Profil",
+  "sales": "Satışlar",
+  "welcome": "Hoş geldiniz",
+  "quickActions": "Hızlı İşlemler",
+  "goodMorning": "Günaydın",
+  "goodAfternoon": "İyi günler",
+  "goodEvening": "İyi akşamlar",
+  "viewAll": "Tümünü Gör",
+  "startNewSale": "Yeni Satış Başlat",
+  "leaveRequests": "İzin talepleri",
+  "salaryRequests": "Maaş talepleri",
+  "noRecentOrders": "Henüz son sipariş yok.",
+  "allProductsStocked": "Tüm ürünler yeterli stokta.",
+  "loadingDashboard": "Kontrol paneli yükleniyor...",
+  "periodDaily": "G",
+  "periodWeekly": "H",
+  "periodMonthly": "A",
+  "periodDailyFull": "Günlük",
+  "periodWeeklyFull": "Haftalık",
+  "periodMonthlyFull": "Aylık",
+  "periodYearly": "Yıllık",
+
+  "manageStaff": "Personeli Yönet",
+  "employee": "Çalışan",
+  "administrator": "Yönetici",
+  "admin": "Admin",
+  "user": "Kullanıcı",
+  "addStaff": "Personel Ekle",
+  "monthlySalary": "Aylık Maaş",
+  "useSignupForStaff": "Yeni personel için Kayıt ekranını kullanın",
+  "editProfileComingSoon": "Profil düzenleme yakında",
+  "updateStaffSalary": "{name} Maaşını Güncelle",
+  "@updateStaffSalary": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "hrDashboard": "İK Kontrol Paneli",
+  "executiveHrOverview": "Yönetici İK Özeti",
+  "staffProfile": "Personel Profili",
+
+  "checkIn": "Giriş Yap",
+  "checkOut": "Çıkış Yap",
+  "checkInNow": "Şimdi Giriş Yap",
+  "present": "Mevcut",
+  "absent": "Yok",
+  "workingHours": "Çalışma Saatleri",
+  "attendanceHistory": "Devam Geçmişi",
+  "todayAttendance": "Bugünkü Devam",
+  "notCheckedIn": "Giriş yapılmadı",
+  "inAt": "Giriş: {time}",
+  "@inAt": {
+    "placeholders": {
+      "time": {}
+    }
+  },
+  "workedDuration": "{duration} çalışıldı",
+  "@workedDuration": {
+    "placeholders": {
+      "duration": {}
+    }
+  },
+  "ongoing": "Devam ediyor",
+  "applyLeave": "İzin Talep Et",
+  "leaveType": "İzin Türü",
+  "startDate": "Başlangıç Tarihi",
+  "endDate": "Bitiş Tarihi",
+  "reason": "Sebep",
+  "pending": "Beklemede",
+  "approved": "Onaylandı",
+  "rejected": "Reddedildi",
+  "unableSubmitLeave": "İzin gönderilemedi: kimliği doğrulanmış kullanıcı yok.",
+  "leaveSubmitted": "İzin talebi gönderildi.",
+  "leaveDays": "{count} gün",
+  "@leaveDays": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "manageLeaveRequests": "İzin Taleplerini Yönet",
+  "noPendingLeaveRequests": "Bekleyen izin talebi yok.",
+  "periodRange": "Dönem: {start} - {end}",
+  "@periodRange": {
+    "placeholders": {
+      "start": {},
+      "end": {}
+    }
+  },
+  "approveLeave": "İzni Onayla",
+  "rejectLeave": "İzni Reddet",
+  "leaveStatusSuccess": "İzin başarıyla {status}.",
+  "@leaveStatusSuccess": {
+    "placeholders": {
+      "status": {}
+    }
+  },
+
+  "pleaseSignInToViewSalary": "Maaş detaylarını görmek için giriş yapın.",
+  "salaryOverview": "Maaş Özeti",
+  "generatePayroll": "Bordro Oluştur",
+  "manageSalaryRequests": "Maaş Taleplerini Yönet",
+  "requestSalary": "Maaş Talep Et",
+  "salaryHistory": "Maaş Geçmişi",
+  "noSalaryRecords": "Maaş kaydı yok",
+  "noSalaryRecordsSubtitle": "Oluşturulan veya ödenen maaşlar burada görünecek.",
+  "unableToLoadSalaryHistory": "Maaş geçmişi yüklenemedi. Lütfen tekrar deneyin.",
+  "basicSalary": "Temel Maaş",
+  "presentDays": "Devam Günleri",
+  "estimatedPay": "Tahmini Ödeme",
+  "deductions": "Kesintiler",
+  "unableToLoadSalaryPreview": "Maaş önizlemesi yüklenemedi. Lütfen tekrar deneyin.",
+  "payrollGenerated": "Bordro oluşturuldu!",
+  "monthYearSalary": "{monthYear} Maaşı",
+  "@monthYearSalary": {
+    "placeholders": {
+      "monthYear": {}
+    }
+  },
+  "netPay": "Net Ödeme",
+  "attendancePercentage": "Devam %",
+  "baseSalary": "Temel Maaş",
+  "salaryRequests": "Maaş Talepleri",
+  "noPendingSalaryRequests": "Bekleyen maaş talebi yok.",
+  "amount": "Tutar",
+  "reject": "Reddet",
+  "approve": "Onayla",
+  "approveRequest": "Talebi Onayla",
+  "rejectRequest": "Talebi Reddet",
+  "adminRemark": "Yönetici Notu",
+  "requestStatusSuccessfully": "Talep başarıyla {status}.",
+  "@requestStatusSuccessfully": {
+    "placeholders": {
+      "status": {}
+    }
+  },
+  "newSalaryRequest": "Yeni Maaş Talebi",
+  "sendRequest": "Talep Gönder",
+  "requestHistory": "Talep Geçmişi",
+  "noSalaryRequestsYet": "Henüz maaş talebi yok.",
+  "salaryRequestSubmitted": "Maaş talebi başarıyla gönderildi.",
+  "salaryRequestFailed": "Talep başarısız: {error}",
+  "@salaryRequestFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "pleaseSignInSalaryRequests": "Maaş taleplerini görmek için giriş yapın.",
+  "requestedDate": "Talep tarihi: {date}",
+  "@requestedDate": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "adminNote": "Yönetici Notu: {note}",
+  "@adminNote": {
+    "placeholders": {
+      "note": {}
+    }
+  },
+
+  "addProduct": "Ürün Ekle",
+  "editProduct": "Ürünü Düzenle",
+  "deleteProduct": "Ürünü Sil",
+  "deleteProductConfirm": "\"{name}\" ürününü silmek istediğinizden emin misiniz?",
+  "@deleteProductConfirm": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "productDeleted": "{name} başarıyla silindi",
+  "@productDeleted": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "productName": "Ürün Adı",
+  "brand": "Marka",
+  "model": "Model",
+  "price": "Fiyat",
+  "stock": "Stok",
+  "available": "Mevcut",
+  "outOfStock": "Stokta Yok",
+  "saveProduct": "Ürünü Kaydet",
+  "productAdded": "Ürün başarıyla eklendi.",
+  "productUpdated": "Ürün başarıyla güncellendi",
+  "productAddedShort": "Ürün başarıyla eklendi",
+  "productUpdatedShort": "Ürün başarıyla güncellendi",
+  "brandLabel": "Marka: {brand}",
+  "@brandLabel": {
+    "placeholders": {
+      "brand": {}
+    }
+  },
+  "modelLabel": "Model: {model}",
+  "@modelLabel": {
+    "placeholders": {
+      "model": {}
+    }
+  },
+  "priceLabel": "Fiyat: {price}",
+  "@priceLabel": {
+    "placeholders": {
+      "price": {}
+    }
+  },
+  "stockLabel": "Stok: {quantity}",
+  "@stockLabel": {
+    "placeholders": {
+      "quantity": {}
+    }
+  },
+  "stockCount": "{count} kaldı",
+  "@stockCount": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "profitLabel": "Kâr: {amount}",
+  "@profitLabel": {
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "qtyLabel": "Adet:",
+  "barcodeLabel": "Barkod:",
+
+  "warranty": "Garanti",
+  "warrantyManagement": "Garanti Yönetimi",
+  "addWarranty": "Garanti Ekle",
+  "warrantyDuration": "Garanti Süresi",
+  "warrantyMonths": "{months} ay",
+  "@warrantyMonths": {
+    "placeholders": {
+      "months": {}
+    }
+  },
+  "warrantyMonthsShort": "{months} ay",
+  "@warrantyMonthsShort": {
+    "placeholders": {
+      "months": {}
+    }
+  },
+  "warrantyLabel": "Garanti:",
+  "pleaseEnterProductName": "Lütfen ürün adını girin.",
+  "warrantyAdded": "Garanti başarıyla eklendi.",
+  "warrantyDetails": "Garanti Detayları",
+  "deleteWarranty": "Garantiyi Sil",
+  "fileClaim": "Talep Oluştur",
+  "voidWarranty": "Garantiyi İptal Et",
+  "claimHistory": "Talep Geçmişi",
+  "costLabel": "Maliyet: {amount}",
+  "@costLabel": {
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "active": "Aktif",
+  "expired": "Süresi Doldu",
+  "expiryDate": "Son Kullanma Tarihi",
+  "customerLabel": "Müşteri: {name}",
+  "@customerLabel": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+
+  "bundles": "Paketler",
+  "bundleName": "Paket Adı",
+  "createBundle": "Paket Oluştur",
+  "sellBundle": "Paket Sat",
+  "bundleNotFound": "Paket bulunamadı.",
+  "itemsInBundle": "Paketteki Ürünler",
+  "addItem": "Ürün Ekle",
+  "includedItems": "Dahil Edilen Ürünler",
+  "bundlePrice": "Paket Fiyatı",
+  "subtotal": "Ara Toplam",
+  "finalPrice": "Son Fiyat",
+  "discount": "İndirim",
+  "discountPercent": "İndirim ({percent}%)",
+  "@discountPercent": {
+    "placeholders": {
+      "percent": {}
+    }
+  },
+  "insufficientStock": "{product} için yetersiz stok",
+  "@insufficientStock": {
+    "placeholders": {
+      "product": {}
+    }
+  },
+  "bundleSold": "Paket satıldı: {name}",
+  "@bundleSold": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "productBundles": "Ürün Paketleri",
+
+  "payment": "Ödeme",
+  "paymentConfirmation": "Ödeme Onayı",
+  "paymentProof": "Ödeme Belgesi",
+  "paymentMethod": "Ödeme Yöntemi",
+  "paymentBreakdown": "Ödeme Detayı",
+  "cash": "Nakit",
+  "card": "Kart",
+  "transfer": "Havale",
+  "jazzCash": "JazzCash",
+  "easyPaisa": "EasyPaisa",
+  "credit": "Kredi",
+  "accountNumber": "Hesap Numarası",
+  "notesOptional": "Notlar (İsteğe Bağlı)",
+  "cardReferenceNumber": "Kart Referans Numarası",
+  "confirmSale": "Satışı Onayla",
+  "totalPrice": "Toplam Fiyat",
+  "selectProductFirst": "Önce bir ürün seçin.",
+  "onePointDiscount": "1 puan = {amount} indirim",
+  "@onePointDiscount": {
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "salesScreen": "Satış Ekranı",
+  "sendReceipt": "Fiş Gönder",
+  "sendViaWhatsApp": "WhatsApp ile Gönder",
+  "sendViaEmail": "E-posta ile Gönder",
+  "sendViaSms": "SMS ile Gönder",
+  "share": "Paylaş",
+  "sendToPhoneNumber": "Telefon Numarasına Gönder",
+  "phoneNumberHint": "Fiş gönderimi için geçerli bir telefon numarası girin.",
+  "send": "Gönder",
+  "emailNotAvailable": "E-posta adresi mevcut değil.",
+
+  "newSale": "Yeni Satış",
+  "orderDetails": "Sipariş Detayları",
+  "orderNumber": "Sipariş #",
+  "quantity": "Miktar",
+  "total": "Toplam",
+  "customer": "Müşteri",
+  "viewDetails": "Detayları Gör",
+  "walkInCustomer": "Gelen Müşteri",
+  "manage": "Yönet",
+
+  "customers": "Müşteriler",
+  "deleteCustomer": "Müşteri Silinsin mi?",
+  "searchCustomers": "Ad veya telefonla ara...",
+  "noCustomersFound": "Müşteri bulunamadı",
+  "repayCredit": "Krediyi Öde",
+  "repay": "Öde",
+  "phone": "Telefon",
+  "address": "Adres",
+  "repeatCustomer": "Tekrarlayan Müşteri",
+  "favoriteProducts": "Favori Ürünler",
+  "noPurchasesYet": "Henüz alışveriş yok",
+  "addCustomer": "Müşteri Ekle",
+  "updateCustomer": "Müşteriyi Güncelle",
+  "pointsEarned": "+{points} puan",
+  "@pointsEarned": {
+    "placeholders": {
+      "points": {}
+    }
+  },
+
+  "reports": "Raporlar",
+  "noDataToExport": "Dışa aktarılacak veri yok.",
+  "recentTransactions": "Son İşlemler",
+  "noTransactionsPeriod": "Bu dönem için işlem yok.",
+  "bestSellingProducts": "En Çok Satan Ürünler",
+  "profitWord": "kâr",
+
+  "firebaseBackups": "Firebase Yedekleri",
+  "noBackupsFound": "Yedek bulunamadı",
+  "restoreBackup": "Yedeği Geri Yükle",
+  "restoreBackupConfirm": "Bu işlem yerel verileri değiştirecek. Devam edilsin mi?",
+  "backupHistory": "Yedekleme Geçmişi",
+
+  "notificationSettings": "Bildirim Ayarları",
+  "enableNotifications": "Bildirimleri Etkinleştir",
+  "lowStockWarnings": "Düşük Stok Uyarıları",
+  "dailySalesReminder": "Günlük Satış Hatırlatıcısı",
+  "exportLocalBackup": "Yerel Yedek Dışa Aktar",
+  "backupToFirebase": "Firebase'e Yedekle",
+  "restoreFromFirebase": "Firebase'den Geri Yükle",
+  "notificationSettingsComingSoon": "Bildirim ayarları yakında!",
+
+  "settings": "Ayarlar",
+  "appearance": "Görünüm",
+  "language": "Dil",
+  "currency": "Para Birimi",
+  "notifications": "Bildirimler",
+  "selectLanguage": "Dil Seç",
+  "selectCurrency": "Para Birimi Seç",
+  "searchCurrency": "Para birimi ara...",
+  "searchLanguage": "Dil ara...",
+  "general": "Genel",
+  "account": "Hesap",
+  "theme": "Tema",
+  "light": "Açık",
+  "dark": "Koyu",
+  "systemDefault": "Sistem Varsayılanı",
+  "about": "Hakkında",
+  "shopTools": "Mağaza Araçları",
+  "shopToolsSubtitle": "Garanti, paketler, raporlar ve hesap ayarları",
+  "editProfile": "Profili Düzenle",
+  "unableToLoadProfile": "Profil yüklenemedi. Lütfen tekrar deneyin.",
+
+  "accessDenied": "Erişim Reddedildi",
+  "goBack": "Geri Dön",
+  "cancel": "İptal",
+  "save": "Kaydet",
+  "submit": "Gönder",
+  "delete": "Sil",
+  "edit": "Düzenle",
+  "view": "Görüntüle",
+  "close": "Kapat",
+  "update": "Güncelle",
+  "errorGeneric": "Hata: {error}",
+  "@errorGeneric": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "continueAction": "Devam Et",
+  "yes": "Evet",
+  "no": "Hayır",
+  "ok": "Tamam",
+
+  "onboardingTitle": "Mobile Shop'a Hoş Geldiniz",
+  "onboardingSubtitle": "Uygulamayı kişiselleştirmek için dil ve para biriminizi seçin.",
+  "chooseLanguage": "Dil Seçin",
+  "chooseCurrency": "Para Birimi Seçin",
+  "getStarted": "Başlayın",
+  "languageNameEnglish": "İngilizce",
+  "languageNameUrdu": "Urduca",
+  "languageNameArabic": "Arapça",
+  "languageNameSpanish": "İspanyolca",
+  "languageNameFrench": "Fransızca",
+  "languageNameGerman": "Almanca",
+  "languageNameChinese": "Çince",
+  "languageNameTurkish": "Türkçe"
+}

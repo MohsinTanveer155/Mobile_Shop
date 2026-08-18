@@ -1,0 +1,478 @@
+{
+  "@@locale": "zh",
+  "appTitle": "手机商店",
+  "appSubtitle": "专业收银与员工管理",
+  "appFullTitle": "手机商店 POS",
+  "versionLabel": "版本 1.0.0",
+
+  "welcomeBack": "欢迎回来",
+  "signInSubtitle": "登录以继续使用您的手机商店账户",
+  "email": "电子邮箱",
+  "password": "密码",
+  "confirmPassword": "确认密码",
+  "rememberMe": "记住我",
+  "forgotPassword": "忘记密码？",
+  "login": "登录",
+  "logout": "退出登录",
+  "createAccount": "创建账户",
+  "dontHaveAccount": "还没有账户？",
+  "alreadyHaveAccount": "已有账户？",
+  "register": "注册",
+  "passwordsDoNotMatch": "两次输入的密码不一致",
+  "accountCreated": "账户创建成功。",
+  "unableToSignIn": "无法登录，请重试。",
+  "unableToCreateAccount": "无法创建账户，请重试。",
+  "resetPassword": "重置密码",
+  "sendResetLink": "发送重置链接",
+  "resetLinkSent": "密码重置链接已发送至您的邮箱。",
+  "logoutConfirm": "确定要退出登录吗？",
+
+  "dashboard": "仪表盘",
+  "home": "首页",
+  "products": "商品",
+  "orders": "订单",
+  "staff": "员工",
+  "more": "更多",
+  "attendance": "考勤",
+  "leave": "请假",
+  "salary": "薪资",
+  "profile": "个人资料",
+  "sales": "销售",
+  "welcome": "欢迎",
+  "quickActions": "快捷操作",
+  "goodMorning": "早上好",
+  "goodAfternoon": "下午好",
+  "goodEvening": "晚上好",
+  "viewAll": "查看全部",
+  "startNewSale": "开始新销售",
+  "leaveRequests": "请假申请",
+  "salaryRequests": "薪资申请",
+  "noRecentOrders": "暂无最近订单。",
+  "allProductsStocked": "所有商品库存充足。",
+  "loadingDashboard": "正在加载仪表盘...",
+  "periodDaily": "日",
+  "periodWeekly": "周",
+  "periodMonthly": "月",
+  "periodDailyFull": "每日",
+  "periodWeeklyFull": "每周",
+  "periodMonthlyFull": "每月",
+  "periodYearly": "每年",
+
+  "manageStaff": "管理员工",
+  "employee": "员工",
+  "administrator": "管理员",
+  "admin": "管理员",
+  "user": "用户",
+  "addStaff": "添加员工",
+  "monthlySalary": "月薪",
+  "useSignupForStaff": "新员工请使用注册页面",
+  "editProfileComingSoon": "编辑资料功能即将推出",
+  "updateStaffSalary": "更新 {name} 的薪资",
+  "@updateStaffSalary": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "hrDashboard": "人事仪表盘",
+  "executiveHrOverview": "人事管理概览",
+  "staffProfile": "员工资料",
+
+  "checkIn": "签到",
+  "checkOut": "签退",
+  "checkInNow": "立即签到",
+  "present": "出勤",
+  "absent": "缺勤",
+  "workingHours": "工作时间",
+  "attendanceHistory": "考勤记录",
+  "todayAttendance": "今日考勤",
+  "notCheckedIn": "未签到",
+  "inAt": "签到时间 {time}",
+  "@inAt": {
+    "placeholders": {
+      "time": {}
+    }
+  },
+  "workedDuration": "已工作 {duration}",
+  "@workedDuration": {
+    "placeholders": {
+      "duration": {}
+    }
+  },
+  "ongoing": "进行中",
+  "applyLeave": "申请请假",
+  "leaveType": "请假类型",
+  "startDate": "开始日期",
+  "endDate": "结束日期",
+  "reason": "原因",
+  "pending": "待处理",
+  "approved": "已批准",
+  "rejected": "已拒绝",
+  "unableSubmitLeave": "无法提交请假：用户未登录。",
+  "leaveSubmitted": "请假申请已提交。",
+  "leaveDays": "{count} 天",
+  "@leaveDays": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "manageLeaveRequests": "管理请假申请",
+  "noPendingLeaveRequests": "暂无待处理的请假申请。",
+  "periodRange": "期间：{start} - {end}",
+  "@periodRange": {
+    "placeholders": {
+      "start": {},
+      "end": {}
+    }
+  },
+  "approveLeave": "批准请假",
+  "rejectLeave": "拒绝请假",
+  "leaveStatusSuccess": "请假已{status}。",
+  "@leaveStatusSuccess": {
+    "placeholders": {
+      "status": {}
+    }
+  },
+
+  "pleaseSignInToViewSalary": "请登录以查看薪资详情。",
+  "salaryOverview": "薪资概览",
+  "generatePayroll": "生成工资单",
+  "manageSalaryRequests": "管理薪资申请",
+  "requestSalary": "申请薪资",
+  "salaryHistory": "薪资记录",
+  "noSalaryRecords": "暂无薪资记录",
+  "noSalaryRecordsSubtitle": "已生成或已发放的薪资将显示在此处。",
+  "unableToLoadSalaryHistory": "无法加载薪资记录，请重试。",
+  "basicSalary": "基本工资",
+  "presentDays": "出勤天数",
+  "estimatedPay": "预计薪资",
+  "deductions": "扣款",
+  "unableToLoadSalaryPreview": "无法加载薪资预览，请重试。",
+  "payrollGenerated": "工资单已生成！",
+  "monthYearSalary": "{monthYear} 薪资",
+  "@monthYearSalary": {
+    "placeholders": {
+      "monthYear": {}
+    }
+  },
+  "netPay": "实发工资",
+  "attendancePercentage": "出勤率 %",
+  "baseSalary": "基本工资",
+  "salaryRequests": "薪资申请",
+  "noPendingSalaryRequests": "暂无待处理的薪资申请。",
+  "amount": "金额",
+  "reject": "拒绝",
+  "approve": "批准",
+  "approveRequest": "批准申请",
+  "rejectRequest": "拒绝申请",
+  "adminRemark": "管理员备注",
+  "requestStatusSuccessfully": "申请已{status}。",
+  "@requestStatusSuccessfully": {
+    "placeholders": {
+      "status": {}
+    }
+  },
+  "newSalaryRequest": "新建薪资申请",
+  "sendRequest": "提交申请",
+  "requestHistory": "申请记录",
+  "noSalaryRequestsYet": "暂无薪资申请。",
+  "salaryRequestSubmitted": "薪资申请提交成功。",
+  "salaryRequestFailed": "申请失败：{error}",
+  "@salaryRequestFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "pleaseSignInSalaryRequests": "请登录以查看薪资申请。",
+  "requestedDate": "申请日期：{date}",
+  "@requestedDate": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "adminNote": "管理员备注：{note}",
+  "@adminNote": {
+    "placeholders": {
+      "note": {}
+    }
+  },
+
+  "addProduct": "添加商品",
+  "editProduct": "编辑商品",
+  "deleteProduct": "删除商品",
+  "deleteProductConfirm": "确定要删除「{name}」吗？",
+  "@deleteProductConfirm": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "productDeleted": "{name} 已删除",
+  "@productDeleted": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "productName": "商品名称",
+  "brand": "品牌",
+  "model": "型号",
+  "price": "价格",
+  "stock": "库存",
+  "available": "有货",
+  "outOfStock": "缺货",
+  "saveProduct": "保存商品",
+  "productAdded": "商品添加成功。",
+  "productUpdated": "商品更新成功",
+  "productAddedShort": "商品添加成功",
+  "productUpdatedShort": "商品更新成功",
+  "brandLabel": "品牌：{brand}",
+  "@brandLabel": {
+    "placeholders": {
+      "brand": {}
+    }
+  },
+  "modelLabel": "型号：{model}",
+  "@modelLabel": {
+    "placeholders": {
+      "model": {}
+    }
+  },
+  "priceLabel": "价格：{price}",
+  "@priceLabel": {
+    "placeholders": {
+      "price": {}
+    }
+  },
+  "stockLabel": "库存：{quantity}",
+  "@stockLabel": {
+    "placeholders": {
+      "quantity": {}
+    }
+  },
+  "stockCount": "剩余 {count}",
+  "@stockCount": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "profitLabel": "利润：{amount}",
+  "@profitLabel": {
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "qtyLabel": "数量：",
+  "barcodeLabel": "条形码：",
+
+  "warranty": "保修",
+  "warrantyManagement": "保修管理",
+  "addWarranty": "添加保修",
+  "warrantyDuration": "保修期限",
+  "warrantyMonths": "{months} 个月",
+  "@warrantyMonths": {
+    "placeholders": {
+      "months": {}
+    }
+  },
+  "warrantyMonthsShort": "{months} 个月",
+  "@warrantyMonthsShort": {
+    "placeholders": {
+      "months": {}
+    }
+  },
+  "warrantyLabel": "保修：",
+  "pleaseEnterProductName": "请输入商品名称。",
+  "warrantyAdded": "保修添加成功。",
+  "warrantyDetails": "保修详情",
+  "deleteWarranty": "删除保修",
+  "fileClaim": "提交索赔",
+  "voidWarranty": "作废保修",
+  "claimHistory": "索赔记录",
+  "costLabel": "费用：{amount}",
+  "@costLabel": {
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "active": "有效",
+  "expired": "已过期",
+  "expiryDate": "到期日期",
+  "customerLabel": "客户：{name}",
+  "@customerLabel": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+
+  "bundles": "套装",
+  "bundleName": "套装名称",
+  "createBundle": "创建套装",
+  "sellBundle": "销售套装",
+  "bundleNotFound": "未找到套装。",
+  "itemsInBundle": "套装内商品",
+  "addItem": "添加商品",
+  "includedItems": "包含商品",
+  "bundlePrice": "套装价格",
+  "subtotal": "小计",
+  "finalPrice": "最终价格",
+  "discount": "折扣",
+  "discountPercent": "折扣（{percent}%）",
+  "@discountPercent": {
+    "placeholders": {
+      "percent": {}
+    }
+  },
+  "insufficientStock": "{product} 库存不足",
+  "@insufficientStock": {
+    "placeholders": {
+      "product": {}
+    }
+  },
+  "bundleSold": "套装已售出：{name}",
+  "@bundleSold": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "productBundles": "商品套装",
+
+  "payment": "支付",
+  "paymentConfirmation": "支付确认",
+  "paymentProof": "支付凭证",
+  "paymentMethod": "支付方式",
+  "paymentBreakdown": "支付明细",
+  "cash": "现金",
+  "card": "银行卡",
+  "transfer": "转账",
+  "jazzCash": "JazzCash",
+  "easyPaisa": "EasyPaisa",
+  "credit": "赊账",
+  "accountNumber": "账号",
+  "notesOptional": "备注（可选）",
+  "cardReferenceNumber": "银行卡参考号",
+  "confirmSale": "确认销售",
+  "totalPrice": "总价",
+  "selectProductFirst": "请先选择商品。",
+  "onePointDiscount": "1 积分 = {amount} 折扣",
+  "@onePointDiscount": {
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "salesScreen": "销售界面",
+  "sendReceipt": "发送收据",
+  "sendViaWhatsApp": "通过 WhatsApp 发送",
+  "sendViaEmail": "通过邮件发送",
+  "sendViaSms": "通过短信发送",
+  "share": "分享",
+  "sendToPhoneNumber": "发送至手机号",
+  "phoneNumberHint": "请输入有效的手机号码以发送收据。",
+  "send": "发送",
+  "emailNotAvailable": "邮箱地址不可用。",
+
+  "newSale": "新销售",
+  "orderDetails": "订单详情",
+  "orderNumber": "订单 #",
+  "quantity": "数量",
+  "total": "合计",
+  "customer": "客户",
+  "viewDetails": "查看详情",
+  "walkInCustomer": "散客",
+  "manage": "管理",
+
+  "customers": "客户",
+  "deleteCustomer": "删除客户？",
+  "searchCustomers": "按姓名或电话搜索...",
+  "noCustomersFound": "未找到客户",
+  "repayCredit": "偿还赊账",
+  "repay": "还款",
+  "phone": "电话",
+  "address": "地址",
+  "repeatCustomer": "回头客",
+  "favoriteProducts": "常购商品",
+  "noPurchasesYet": "暂无购买记录",
+  "addCustomer": "添加客户",
+  "updateCustomer": "更新客户",
+  "pointsEarned": "+{points} 积分",
+  "@pointsEarned": {
+    "placeholders": {
+      "points": {}
+    }
+  },
+
+  "reports": "报表",
+  "noDataToExport": "没有可导出的数据。",
+  "recentTransactions": "最近交易",
+  "noTransactionsPeriod": "该时段暂无交易。",
+  "bestSellingProducts": "畅销商品",
+  "profitWord": "利润",
+
+  "firebaseBackups": "Firebase 备份",
+  "noBackupsFound": "未找到备份",
+  "restoreBackup": "恢复备份",
+  "restoreBackupConfirm": "这将替换本地数据，是否继续？",
+  "backupHistory": "备份记录",
+
+  "notificationSettings": "通知设置",
+  "enableNotifications": "启用通知",
+  "lowStockWarnings": "低库存提醒",
+  "dailySalesReminder": "每日销售提醒",
+  "exportLocalBackup": "导出本地备份",
+  "backupToFirebase": "备份到 Firebase",
+  "restoreFromFirebase": "从 Firebase 恢复",
+  "notificationSettingsComingSoon": "通知设置即将推出！",
+
+  "settings": "设置",
+  "appearance": "外观",
+  "language": "语言",
+  "currency": "货币",
+  "notifications": "通知",
+  "selectLanguage": "选择语言",
+  "selectCurrency": "选择货币",
+  "searchCurrency": "搜索货币...",
+  "searchLanguage": "搜索语言...",
+  "general": "通用",
+  "account": "账户",
+  "theme": "主题",
+  "light": "浅色",
+  "dark": "深色",
+  "systemDefault": "跟随系统",
+  "about": "关于",
+  "shopTools": "商店工具",
+  "shopToolsSubtitle": "保修、套装、报表和账户设置",
+  "editProfile": "编辑资料",
+  "unableToLoadProfile": "无法加载资料，请重试。",
+
+  "accessDenied": "访问被拒绝",
+  "goBack": "返回",
+  "cancel": "取消",
+  "save": "保存",
+  "submit": "提交",
+  "delete": "删除",
+  "edit": "编辑",
+  "view": "查看",
+  "close": "关闭",
+  "update": "更新",
+  "errorGeneric": "错误：{error}",
+  "@errorGeneric": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "continueAction": "继续",
+  "yes": "是",
+  "no": "否",
+  "ok": "确定",
+
+  "onboardingTitle": "欢迎使用手机商店",
+  "onboardingSubtitle": "选择语言和货币以个性化应用。",
+  "chooseLanguage": "选择语言",
+  "chooseCurrency": "选择货币",
+  "getStarted": "开始使用",
+  "languageNameEnglish": "英语",
+  "languageNameUrdu": "乌尔都语",
+  "languageNameArabic": "阿拉伯语",
+  "languageNameSpanish": "西班牙语",
+  "languageNameFrench": "法语",
+  "languageNameGerman": "德语",
+  "languageNameChinese": "中文",
+  "languageNameTurkish": "土耳其语"
+}

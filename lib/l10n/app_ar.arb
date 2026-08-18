@@ -1,0 +1,478 @@
+{
+  "@@locale": "ar",
+  "appTitle": "متجر الجوال",
+  "appSubtitle": "نقطة بيع احترافية وإدارة الموظفين",
+  "appFullTitle": "متجر الجوال POS",
+  "versionLabel": "الإصدار 1.0.0",
+
+  "welcomeBack": "مرحباً بعودتك",
+  "signInSubtitle": "سجّل الدخول للمتابعة إلى حساب متجر الجوال",
+  "email": "البريد الإلكتروني",
+  "password": "كلمة المرور",
+  "confirmPassword": "تأكيد كلمة المرور",
+  "rememberMe": "تذكرني",
+  "forgotPassword": "نسيت كلمة المرور؟",
+  "login": "تسجيل الدخول",
+  "logout": "تسجيل الخروج",
+  "createAccount": "إنشاء حساب",
+  "dontHaveAccount": "ليس لديك حساب؟",
+  "alreadyHaveAccount": "لديك حساب بالفعل؟",
+  "register": "التسجيل",
+  "passwordsDoNotMatch": "كلمتا المرور غير متطابقتين",
+  "accountCreated": "تم إنشاء الحساب بنجاح.",
+  "unableToSignIn": "تعذّر تسجيل الدخول. يرجى المحاولة مرة أخرى.",
+  "unableToCreateAccount": "تعذّر إنشاء الحساب. يرجى المحاولة مرة أخرى.",
+  "resetPassword": "إعادة تعيين كلمة المرور",
+  "sendResetLink": "إرسال رابط إعادة التعيين",
+  "resetLinkSent": "تم إرسال رابط إعادة تعيين كلمة المرور إلى بريدك الإلكتروني.",
+  "logoutConfirm": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+
+  "dashboard": "لوحة التحكم",
+  "home": "الرئيسية",
+  "products": "المنتجات",
+  "orders": "الطلبات",
+  "staff": "الموظفون",
+  "more": "المزيد",
+  "attendance": "الحضور",
+  "leave": "الإجازة",
+  "salary": "الراتب",
+  "profile": "الملف الشخصي",
+  "sales": "المبيعات",
+  "welcome": "مرحباً",
+  "quickActions": "إجراءات سريعة",
+  "goodMorning": "صباح الخير",
+  "goodAfternoon": "مساء الخير",
+  "goodEvening": "مساء الخير",
+  "viewAll": "عرض الكل",
+  "startNewSale": "بدء عملية بيع جديدة",
+  "leaveRequests": "طلبات الإجازة",
+  "salaryRequests": "طلبات الراتب",
+  "noRecentOrders": "لا توجد طلبات حديثة بعد.",
+  "allProductsStocked": "جميع المنتجات متوفرة بكميات كافية.",
+  "loadingDashboard": "جارٍ تحميل لوحة التحكم...",
+  "periodDaily": "ي",
+  "periodWeekly": "أ",
+  "periodMonthly": "ش",
+  "periodDailyFull": "يومي",
+  "periodWeeklyFull": "أسبوعي",
+  "periodMonthlyFull": "شهري",
+  "periodYearly": "سنوي",
+
+  "manageStaff": "إدارة الموظفين",
+  "employee": "موظف",
+  "administrator": "مسؤول",
+  "admin": "مدير",
+  "user": "مستخدم",
+  "addStaff": "إضافة موظف",
+  "monthlySalary": "الراتب الشهري",
+  "useSignupForStaff": "استخدم شاشة التسجيل للموظفين الجدد",
+  "editProfileComingSoon": "تعديل الملف الشخصي قريباً",
+  "updateStaffSalary": "تحديث راتب {name}",
+  "@updateStaffSalary": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "hrDashboard": "لوحة الموارد البشرية",
+  "executiveHrOverview": "نظرة تنفيذية على الموارد البشرية",
+  "staffProfile": "ملف الموظف",
+
+  "checkIn": "تسجيل الحضور",
+  "checkOut": "تسجيل الانصراف",
+  "checkInNow": "سجّل الحضور الآن",
+  "present": "حاضر",
+  "absent": "غائب",
+  "workingHours": "ساعات العمل",
+  "attendanceHistory": "سجل الحضور",
+  "todayAttendance": "حضور اليوم",
+  "notCheckedIn": "لم يتم تسجيل الحضور",
+  "inAt": "دخول في {time}",
+  "@inAt": {
+    "placeholders": {
+      "time": {}
+    }
+  },
+  "workedDuration": "عمل {duration}",
+  "@workedDuration": {
+    "placeholders": {
+      "duration": {}
+    }
+  },
+  "ongoing": "جارٍ",
+  "applyLeave": "طلب إجازة",
+  "leaveType": "نوع الإجازة",
+  "startDate": "تاريخ البدء",
+  "endDate": "تاريخ الانتهاء",
+  "reason": "السبب",
+  "pending": "قيد الانتظار",
+  "approved": "موافق عليه",
+  "rejected": "مرفوض",
+  "unableSubmitLeave": "تعذّر تقديم طلب الإجازة: لا يوجد مستخدم مصادق عليه.",
+  "leaveSubmitted": "تم تقديم طلب الإجازة.",
+  "leaveDays": "{count} يوم/أيام",
+  "@leaveDays": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "manageLeaveRequests": "إدارة طلبات الإجازة",
+  "noPendingLeaveRequests": "لا توجد طلبات إجازة قيد الانتظار.",
+  "periodRange": "الفترة: {start} - {end}",
+  "@periodRange": {
+    "placeholders": {
+      "start": {},
+      "end": {}
+    }
+  },
+  "approveLeave": "الموافقة على الإجازة",
+  "rejectLeave": "رفض الإجازة",
+  "leaveStatusSuccess": "تم {status} الإجازة بنجاح.",
+  "@leaveStatusSuccess": {
+    "placeholders": {
+      "status": {}
+    }
+  },
+
+  "pleaseSignInToViewSalary": "يرجى تسجيل الدخول لعرض تفاصيل الراتب.",
+  "salaryOverview": "نظرة عامة على الراتب",
+  "generatePayroll": "إنشاء كشف الرواتب",
+  "manageSalaryRequests": "إدارة طلبات الراتب",
+  "requestSalary": "طلب راتب",
+  "salaryHistory": "سجل الرواتب",
+  "noSalaryRecords": "لا توجد سجلات رواتب",
+  "noSalaryRecordsSubtitle": "ستظهر الرواتب المُنشأة أو المدفوعة هنا.",
+  "unableToLoadSalaryHistory": "تعذّر تحميل سجل الرواتب. يرجى المحاولة مرة أخرى.",
+  "basicSalary": "الراتب الأساسي",
+  "presentDays": "أيام الحضور",
+  "estimatedPay": "الأجر المقدّر",
+  "deductions": "الخصومات",
+  "unableToLoadSalaryPreview": "تعذّر تحميل معاينة الراتب. يرجى المحاولة مرة أخرى.",
+  "payrollGenerated": "تم إنشاء كشف الرواتب!",
+  "monthYearSalary": "راتب {monthYear}",
+  "@monthYearSalary": {
+    "placeholders": {
+      "monthYear": {}
+    }
+  },
+  "netPay": "صافي الأجر",
+  "attendancePercentage": "نسبة الحضور %",
+  "baseSalary": "الراتب الأساسي",
+  "salaryRequests": "طلبات الراتب",
+  "noPendingSalaryRequests": "لا توجد طلبات راتب قيد الانتظار.",
+  "amount": "المبلغ",
+  "reject": "رفض",
+  "approve": "موافقة",
+  "approveRequest": "الموافقة على الطلب",
+  "rejectRequest": "رفض الطلب",
+  "adminRemark": "ملاحظة المدير",
+  "requestStatusSuccessfully": "تم {status} الطلب بنجاح.",
+  "@requestStatusSuccessfully": {
+    "placeholders": {
+      "status": {}
+    }
+  },
+  "newSalaryRequest": "طلب راتب جديد",
+  "sendRequest": "إرسال الطلب",
+  "requestHistory": "سجل الطلبات",
+  "noSalaryRequestsYet": "لا توجد طلبات راتب بعد.",
+  "salaryRequestSubmitted": "تم تقديم طلب الراتب بنجاح.",
+  "salaryRequestFailed": "فشل الطلب: {error}",
+  "@salaryRequestFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "pleaseSignInSalaryRequests": "يرجى تسجيل الدخول لعرض طلبات الراتب.",
+  "requestedDate": "تاريخ الطلب: {date}",
+  "@requestedDate": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "adminNote": "ملاحظة المدير: {note}",
+  "@adminNote": {
+    "placeholders": {
+      "note": {}
+    }
+  },
+
+  "addProduct": "إضافة منتج",
+  "editProduct": "تعديل المنتج",
+  "deleteProduct": "حذف المنتج",
+  "deleteProductConfirm": "هل أنت متأكد أنك تريد حذف \"{name}\"؟",
+  "@deleteProductConfirm": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "productDeleted": "تم حذف {name} بنجاح",
+  "@productDeleted": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "productName": "اسم المنتج",
+  "brand": "العلامة التجارية",
+  "model": "الطراز",
+  "price": "السعر",
+  "stock": "المخزون",
+  "available": "متوفر",
+  "outOfStock": "نفد من المخزون",
+  "saveProduct": "حفظ المنتج",
+  "productAdded": "تمت إضافة المنتج بنجاح.",
+  "productUpdated": "تم تحديث المنتج بنجاح",
+  "productAddedShort": "تمت إضافة المنتج بنجاح",
+  "productUpdatedShort": "تم تحديث المنتج بنجاح",
+  "brandLabel": "العلامة التجارية: {brand}",
+  "@brandLabel": {
+    "placeholders": {
+      "brand": {}
+    }
+  },
+  "modelLabel": "الطراز: {model}",
+  "@modelLabel": {
+    "placeholders": {
+      "model": {}
+    }
+  },
+  "priceLabel": "السعر: {price}",
+  "@priceLabel": {
+    "placeholders": {
+      "price": {}
+    }
+  },
+  "stockLabel": "المخزون: {quantity}",
+  "@stockLabel": {
+    "placeholders": {
+      "quantity": {}
+    }
+  },
+  "stockCount": "متبقي {count}",
+  "@stockCount": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "profitLabel": "الربح: {amount}",
+  "@profitLabel": {
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "qtyLabel": "الكمية:",
+  "barcodeLabel": "الباركود:",
+
+  "warranty": "الضمان",
+  "warrantyManagement": "إدارة الضمان",
+  "addWarranty": "إضافة ضمان",
+  "warrantyDuration": "مدة الضمان",
+  "warrantyMonths": "{months} شهر/أشهر",
+  "@warrantyMonths": {
+    "placeholders": {
+      "months": {}
+    }
+  },
+  "warrantyMonthsShort": "{months} شهر",
+  "@warrantyMonthsShort": {
+    "placeholders": {
+      "months": {}
+    }
+  },
+  "warrantyLabel": "الضمان:",
+  "pleaseEnterProductName": "يرجى إدخال اسم المنتج.",
+  "warrantyAdded": "تمت إضافة الضمان بنجاح.",
+  "warrantyDetails": "تفاصيل الضمان",
+  "deleteWarranty": "حذف الضمان",
+  "fileClaim": "تقديم مطالبة",
+  "voidWarranty": "إلغاء الضمان",
+  "claimHistory": "سجل المطالبات",
+  "costLabel": "التكلفة: {amount}",
+  "@costLabel": {
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "active": "نشط",
+  "expired": "منتهي الصلاحية",
+  "expiryDate": "تاريخ الانتهاء",
+  "customerLabel": "العميل: {name}",
+  "@customerLabel": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+
+  "bundles": "الحزم",
+  "bundleName": "اسم الحزمة",
+  "createBundle": "إنشاء حزمة",
+  "sellBundle": "بيع الحزمة",
+  "bundleNotFound": "لم يتم العثور على الحزمة.",
+  "itemsInBundle": "العناصر في الحزمة",
+  "addItem": "إضافة عنصر",
+  "includedItems": "العناصر المضمنة",
+  "bundlePrice": "سعر الحزمة",
+  "subtotal": "المجموع الفرعي",
+  "finalPrice": "السعر النهائي",
+  "discount": "الخصم",
+  "discountPercent": "خصم ({percent}%)",
+  "@discountPercent": {
+    "placeholders": {
+      "percent": {}
+    }
+  },
+  "insufficientStock": "مخزون غير كافٍ لـ {product}",
+  "@insufficientStock": {
+    "placeholders": {
+      "product": {}
+    }
+  },
+  "bundleSold": "تم بيع الحزمة: {name}",
+  "@bundleSold": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "productBundles": "حزم المنتجات",
+
+  "payment": "الدفع",
+  "paymentConfirmation": "تأكيد الدفع",
+  "paymentProof": "إثبات الدفع",
+  "paymentMethod": "طريقة الدفع",
+  "paymentBreakdown": "تفاصيل الدفع",
+  "cash": "نقداً",
+  "card": "بطاقة",
+  "transfer": "تحويل",
+  "jazzCash": "JazzCash",
+  "easyPaisa": "EasyPaisa",
+  "credit": "ائتمان",
+  "accountNumber": "رقم الحساب",
+  "notesOptional": "ملاحظات (اختياري)",
+  "cardReferenceNumber": "رقم مرجع البطاقة",
+  "confirmSale": "تأكيد البيع",
+  "totalPrice": "السعر الإجمالي",
+  "selectProductFirst": "اختر منتجاً أولاً.",
+  "onePointDiscount": "نقطة واحدة = خصم {amount}",
+  "@onePointDiscount": {
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "salesScreen": "شاشة المبيعات",
+  "sendReceipt": "إرسال الإيصال",
+  "sendViaWhatsApp": "إرسال عبر WhatsApp",
+  "sendViaEmail": "إرسال عبر البريد الإلكتروني",
+  "sendViaSms": "إرسال عبر SMS",
+  "share": "مشاركة",
+  "sendToPhoneNumber": "إرسال إلى رقم الهاتف",
+  "phoneNumberHint": "أدخل رقم هاتف صالحاً لإرسال الإيصال.",
+  "send": "إرسال",
+  "emailNotAvailable": "عنوان البريد الإلكتروني غير متوفر.",
+
+  "newSale": "بيع جديد",
+  "orderDetails": "تفاصيل الطلب",
+  "orderNumber": "طلب #",
+  "quantity": "الكمية",
+  "total": "الإجمالي",
+  "customer": "العميل",
+  "viewDetails": "عرض التفاصيل",
+  "walkInCustomer": "عميل بدون موعد",
+  "manage": "إدارة",
+
+  "customers": "العملاء",
+  "deleteCustomer": "حذف العميل؟",
+  "searchCustomers": "البحث بالاسم أو الهاتف...",
+  "noCustomersFound": "لم يتم العثور على عملاء",
+  "repayCredit": "سداد الائتمان",
+  "repay": "سداد",
+  "phone": "الهاتف",
+  "address": "العنوان",
+  "repeatCustomer": "عميل متكرر",
+  "favoriteProducts": "المنتجات المفضلة",
+  "noPurchasesYet": "لا توجد مشتريات بعد",
+  "addCustomer": "إضافة عميل",
+  "updateCustomer": "تحديث العميل",
+  "pointsEarned": "+{points} نقطة",
+  "@pointsEarned": {
+    "placeholders": {
+      "points": {}
+    }
+  },
+
+  "reports": "التقارير",
+  "noDataToExport": "لا توجد بيانات للتصدير.",
+  "recentTransactions": "المعاملات الأخيرة",
+  "noTransactionsPeriod": "لا توجد معاملات لهذه الفترة.",
+  "bestSellingProducts": "المنتجات الأكثر مبيعاً",
+  "profitWord": "ربح",
+
+  "firebaseBackups": "نسخ Firebase الاحتياطية",
+  "noBackupsFound": "لم يتم العثور على نسخ احتياطية",
+  "restoreBackup": "استعادة النسخة الاحتياطية",
+  "restoreBackupConfirm": "سيؤدي هذا إلى استبدال البيانات المحلية. هل تريد المتابعة؟",
+  "backupHistory": "سجل النسخ الاحتياطية",
+
+  "notificationSettings": "إعدادات الإشعارات",
+  "enableNotifications": "تفعيل الإشعارات",
+  "lowStockWarnings": "تحذيرات انخفاض المخزون",
+  "dailySalesReminder": "تذكير المبيعات اليومية",
+  "exportLocalBackup": "تصدير نسخة احتياطية محلية",
+  "backupToFirebase": "نسخ احتياطي إلى Firebase",
+  "restoreFromFirebase": "استعادة من Firebase",
+  "notificationSettingsComingSoon": "إعدادات الإشعارات قريباً!",
+
+  "settings": "الإعدادات",
+  "appearance": "المظهر",
+  "language": "اللغة",
+  "currency": "العملة",
+  "notifications": "الإشعارات",
+  "selectLanguage": "اختر اللغة",
+  "selectCurrency": "اختر العملة",
+  "searchCurrency": "البحث عن عملة...",
+  "searchLanguage": "البحث عن لغة...",
+  "general": "عام",
+  "account": "الحساب",
+  "theme": "السمة",
+  "light": "فاتح",
+  "dark": "داكن",
+  "systemDefault": "افتراضي النظام",
+  "about": "حول",
+  "shopTools": "أدوات المتجر",
+  "shopToolsSubtitle": "الضمان والحزم والتقارير وإعدادات الحساب",
+  "editProfile": "تعديل الملف الشخصي",
+  "unableToLoadProfile": "تعذّر تحميل الملف الشخصي. يرجى المحاولة مرة أخرى.",
+
+  "accessDenied": "تم رفض الوصول",
+  "goBack": "رجوع",
+  "cancel": "إلغاء",
+  "save": "حفظ",
+  "submit": "إرسال",
+  "delete": "حذف",
+  "edit": "تعديل",
+  "view": "عرض",
+  "close": "إغلاق",
+  "update": "تحديث",
+  "errorGeneric": "خطأ: {error}",
+  "@errorGeneric": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "continueAction": "متابعة",
+  "yes": "نعم",
+  "no": "لا",
+  "ok": "موافق",
+
+  "onboardingTitle": "مرحباً بك في متجر الجوال",
+  "onboardingSubtitle": "اختر لغتك وعملتك لتخصيص التطبيق.",
+  "chooseLanguage": "اختر اللغة",
+  "chooseCurrency": "اختر العملة",
+  "getStarted": "ابدأ",
+  "languageNameEnglish": "الإنجليزية",
+  "languageNameUrdu": "الأردية",
+  "languageNameArabic": "العربية",
+  "languageNameSpanish": "الإسبانية",
+  "languageNameFrench": "الفرنسية",
+  "languageNameGerman": "الألمانية",
+  "languageNameChinese": "الصينية",
+  "languageNameTurkish": "التركية"
+}
