@@ -40,16 +40,29 @@ class SalaryRecord {
   };
 
   factory SalaryRecord.fromJson(Map<String, dynamic> json) {
+    final rawGeneratedAt = json['generatedAt'];
+    final DateTime generatedAt;
+
+    if (rawGeneratedAt is Timestamp) {
+      generatedAt = rawGeneratedAt.toDate();
+    } else if (rawGeneratedAt is DateTime) {
+      generatedAt = rawGeneratedAt;
+    } else if (rawGeneratedAt is String) {
+      generatedAt = DateTime.tryParse(rawGeneratedAt) ?? DateTime.now();
+    } else {
+      generatedAt = DateTime.now();
+    }
+
     return SalaryRecord(
-      uid: json['uid'] as String,
-      staffName: json['staffName'] as String,
-      monthYear: json['monthYear'] as String,
-      baseSalary: (json['baseSalary'] as num).toDouble(),
-      totalWorkingDays: json['totalWorkingDays'] as int,
-      presentDays: json['presentDays'] as int,
-      deductions: (json['deductions'] as num?)?.toDouble() ?? 0.0,
-      netPay: (json['netPay'] as num).toDouble(),
-      generatedAt: (json['generatedAt'] as Timestamp).toDate(),
+      uid: json['uid'] is String ? json['uid'] as String : '',
+      staffName: json['staffName'] is String ? json['staffName'] as String : 'Unknown staff',
+      monthYear: json['monthYear'] is String ? json['monthYear'] as String : 'Unknown',
+      baseSalary: (json['baseSalary'] is num ? json['baseSalary'] as num : 0).toDouble(),
+      totalWorkingDays: json['totalWorkingDays'] is int ? json['totalWorkingDays'] as int : 0,
+      presentDays: json['presentDays'] is int ? json['presentDays'] as int : 0,
+      deductions: (json['deductions'] is num ? json['deductions'] as num : 0).toDouble(),
+      netPay: (json['netPay'] is num ? json['netPay'] as num : 0).toDouble(),
+      generatedAt: generatedAt,
     );
   }
 }

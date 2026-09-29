@@ -21,8 +21,8 @@ class AdminSalaryRequestsScreen extends ConsumerWidget {
       child: Scaffold(
         appBar: AppBar(title: Text(l10n.salaryRequests)),
         body: Padding(
-          padding: const EdgeInsets.all(20),
-          child: ref.watch(pendingSalaryRequestsProvider).when(
+          padding: const EdgeInsets.all(16),
+          child: ref.watch(adminSalaryRequestsProvider).when(
                 data: (requests) {
                   if (requests.isEmpty) {
                     return Center(child: Text(l10n.noPendingSalaryRequests));
@@ -43,7 +43,7 @@ class AdminSalaryRequestsScreen extends ConsumerWidget {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    request.employeeName,
+                                    request.staffName,
                                     style: const TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
@@ -139,33 +139,51 @@ class AdminSalaryRequestsScreen extends ConsumerWidget {
           ElevatedButton(
             onPressed: () async {
               final remarkText = remarkController.text.trim();
-              final messenger = ScaffoldMessenger.of(context);
+              final pageContext = context;
               final statusLabel = status == 'approved'
                   ? l10n.approve.toLowerCase()
                   : l10n.reject.toLowerCase();
               final successMessage =
                   l10n.requestStatusSuccessfully(statusLabel);
 
-              Navigator.pop(dialogContext);
+              try {
+                await ref
+                    .read(salaryServiceProvider)
+                    .updateSalaryRequestStatus(
+                      requestId: request.id,
+                      status: status == 'approved'
+                          ? SalaryRequestStatus.approved
+                          : SalaryRequestStatus.rejected,
+                      adminRemark: remarkText.isEmpty ? null : remarkText,
+                    );
 
-              await ref
-                  .read(salaryRequestNotifierProvider.notifier)
-                  .updateStatus(
-                    request.id,
-                    status,
-                    approvedBy: ref.read(authProvider)?.id,
-                    adminRemark: remarkText.isEmpty ? null : remarkText,
-                    paymentDate: status == 'approved' ? DateTime.now() : null,
-                  );
-
-              messenger.showSnackBar(
-                SnackBar(content: Text(successMessage)),
-              );
+                if (!pageContext.mounted) return;
+                ref.invalidate(adminSalaryRequestsProvider);
+                if (Navigator.of(dialogContext).canPop()) {
+                  Navigator.of(dialogContext).pop();
+                }
+                remarkController.dispose();
+                ScaffoldMessenger.maybeOf(pageContext)?.showSnackBar(
+                  SnackBar(content: Text(successMessage)),
+                );
+              } catch (e) {
+                if (!pageContext.mounted) return;
+                if (Navigator.of(dialogContext).canPop()) {
+                  Navigator.of(dialogContext).pop();
+                }
+                remarkController.dispose();
+                ScaffoldMessenger.maybeOf(pageContext)?.showSnackBar(
+                  SnackBar(
+                    content: Text('Failed to update: $e'),
+                    backgroundColor: Colors.red,
+                  ),
+                );
+              }
             },
             child: Text(l10n.submit),
           ),
         ],
       ),
-    ).then((_) => remarkController.dispose());
+    );
   }
 }

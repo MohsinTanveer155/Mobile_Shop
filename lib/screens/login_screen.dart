@@ -35,26 +35,28 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
     setState(() => _isLoading = true);
 
-    final error = await ref.read(authProvider.notifier).login(
-          _usernameController.text.trim(),
-          _passwordController.text.trim(),
+    try {
+      final user = await ref.read(authServiceProvider).signInWithEmailAndPassword(
+            _usernameController.text.trim(),
+            _passwordController.text.trim(),
+          );
+
+      setState(() => _isLoading = false);
+
+      if (user != null && mounted) {
+        final destination = user.isAdmin ? const AdminShell() : const EmployeeShell();
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (_) => destination),
         );
-
-    setState(() => _isLoading = false);
-
-    if (error == null && mounted) {
-      final user = ref.read(authProvider);
-      final destination = user?.isAdmin == true
-          ? const AdminShell()
-          : const EmployeeShell();
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => destination),
-      );
-    } else if (mounted) {
+      }
+    } catch (e) {
+      if (!mounted) return;
+      setState(() => _isLoading = false);
+      final error = e.toString();
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(error ?? 'Unable to sign in. Please try again.'),
+          content: Text(error),
           backgroundColor: AppColors.error,
         ),
       );

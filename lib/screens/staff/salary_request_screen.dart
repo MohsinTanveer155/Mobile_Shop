@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:intl/intl.dart';
+import '../../config/colors.dart';
+import '../../gen/l10n/app_localizations.dart';
+import '../../models/salary_request.dart';
 import '../../providers/app_providers.dart';
+import '../../utils/validators.dart';
+import '../../widgets/empty_state.dart';
+import '../../widgets/loading_state.dart';
 
 class SalaryRequestScreen extends ConsumerStatefulWidget {
   const SalaryRequestScreen({super.key});
@@ -11,10 +18,10 @@ class SalaryRequestScreen extends ConsumerStatefulWidget {
 }
 
 class _SalaryRequestScreenState extends ConsumerState<SalaryRequestScreen> {
-  final _amountController = TextEditingController();
-  final _reasonController = TextEditingController();
-  bool _isLoading = false;
   final _formKey = GlobalKey<FormState>();
+  final TextEditingController _amountController = TextEditingController();
+  final TextEditingController _reasonController = TextEditingController();
+  bool _isLoading = false;
 
   @override
   void dispose() {
@@ -24,30 +31,65 @@ class _SalaryRequestScreenState extends ConsumerState<SalaryRequestScreen> {
   }
 
   Future<void> _submitRequest() async {
-    if (!_formKey.currentState!.validate()) return;
-    final user = ref.read(authProvider);
-    if (user == null) return;
+    if (!_formKey.currentState!.validate()) {
+      return;
+    }
 
     setState(() => _isLoading = true);
-    try {
-      await ref.read(salaryRequestNotifierProvider.notifier).sendRequest(
-            uid: user.id,
-            employeeName: user.name,
-            amount: double.parse(_amountController.text.trim()),
-            reason: _reasonController.text.trim(),
-          );
-      if (!mounted) return;
-      _amountController.clear();
-      _reasonController.clear();
+
+    final user = ref.read(authProvider);
+    if (user == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Salary request submitted successfully.')),
+        SnackBar(content: Text(AppLocalizations.of(context).pleaseSignInSalaryRequests)),
       );
+      setState(() => _isLoading = false);
+      return;
+    }
+
+    final amount = double.tryParse(_amountController.text.trim());
+    if (amount == null || amount <= 0) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(AppLocalizations.of(context).errorGeneric('Invalid amount'))),
+      );
+      setState(() => _isLoading = false);
+      return;
+    }
+
+    final newRequest = SalaryRequest(
+      staffId: user.id,
+      staffName: user.name,
+      amount: amount,
+      reason: _reasonController.text.trim(),
+      requestDate: DateTime.now(),
+      createdAt: DateTime.now(),
+      status: SalaryRequestStatus.pending,
+    );
+
+    try {
+      final salaryService = ref.read(salaryServiceProvider);
+      await salaryService.createSalaryRequest(newRequest);
+
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(AppLocalizations.of(context).salaryRequestSubmitted),
+          backgroundColor: AppColors.success,
+        ),
+      );
+      Navigator.pop(context); // Go back after successful submission
     } catch (e) {
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Request failed: $e'), backgroundColor: Colors.red),
-        );
-      }
+      if (!mounted) return;
+      final message = e is FirebaseException && e.code == 'permission-denied'
+          ? 'You do not have permission to submit this salary request.'
+          : e is FirebaseAuthException && e.code == 'unauthenticated'
+              ? AppLocalizations.of(context).pleaseSignInSalaryRequests
+              : 'Unable to submit salary request. Please check your connection and try again.';
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(message),
+          backgroundColor: AppColors.error,
+        ),
+      );
     } finally {
       if (mounted) setState(() => _isLoading = false);
     }
@@ -55,18 +97,22 @@ class _SalaryRequestScreenState extends ConsumerState<SalaryRequestScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     final user = ref.watch(authProvider);
+
     if (user == null) {
       return Scaffold(
-        appBar: AppBar(title: const Text('Salary Requests')),
-        body: const Center(child: Text('Please sign in to view salary requests.')),
+        appBar: AppBar(title: Text(l10n.requestSalary)),
+        body: EmptyState(
+          icon: Icons.login,
+          title: l10n.accessDenied,
+          subtitle: l10n.pleaseSignInSalaryRequests,
+        ),
       );
     }
 
-    final salaryRequests = ref.watch(mySalaryRequestsProvider(user.id));
-
     return Scaffold(
-      appBar: AppBar(title: const Text('Salary Requests')),
+      appBar: AppBar(title: Text(l10n.requestSalary)),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -80,37 +126,28 @@ class _SalaryRequestScreenState extends ConsumerState<SalaryRequestScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      const Text('New Salary Request', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                      Text(l10n.newSalaryRequest, style: Theme.of(context).textTheme.headlineSmall),
                       const SizedBox(height: 16),
                       TextFormField(
                         controller: _amountController,
-                        decoration: const InputDecoration(labelText: 'Amount', prefixIcon: Icon(Icons.attach_money)),
+                        decoration: InputDecoration(labelText: l10n.amount, prefixText: 'Rs '),
                         keyboardType: TextInputType.number,
-                        validator: (value) {
-                          if (value == null || value.trim().isEmpty) {
-                            return 'Enter amount';
-                          }
-                          final parsed = double.tryParse(value.trim());
-                          if (parsed == null || parsed <= 0) {
-                            return 'Enter a valid amount';
-                          }
-                          return null;
-                        },
+                        validator: (v) => Validators.validateNumber(v, fieldName: l10n.amount, minValue: 1),
                       ),
                       const SizedBox(height: 16),
                       TextFormField(
                         controller: _reasonController,
-                        minLines: 3,
-                        maxLines: 5,
-                        decoration: const InputDecoration(labelText: 'Reason', prefixIcon: Icon(Icons.message)),
-                        validator: (value) => value == null || value.trim().isEmpty ? 'Add a reason' : null,
+                        decoration: InputDecoration(labelText: l10n.reason, hintText: l10n.notesOptional),
+                        minLines: 2,
+                        maxLines: 4,
+                        validator: (v) => Validators.validateRequired(v, l10n.reason),
                       ),
                       const SizedBox(height: 24),
                       ElevatedButton(
                         onPressed: _isLoading ? null : _submitRequest,
                         child: _isLoading
                             ? const SizedBox(width: 20, height: 20, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2))
-                            : const Text('Send Request'),
+                            : Text(l10n.sendRequest),
                       ),
                     ],
                   ),
@@ -118,63 +155,39 @@ class _SalaryRequestScreenState extends ConsumerState<SalaryRequestScreen> {
               ),
             ),
             const SizedBox(height: 24),
-            const Text('Request History', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            Text(l10n.requestHistory, style: Theme.of(context).textTheme.headlineSmall),
             const SizedBox(height: 16),
-            salaryRequests.when(
-              data: (requests) {
-                if (requests.isEmpty) {
-                  return const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 16),
-                    child: Center(child: Text('No salary requests yet.')),
-                  );
-                }
-                return ListView.separated(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: requests.length,
-                  separatorBuilder: (_, __) => const SizedBox(height: 12),
-                  itemBuilder: (context, index) {
-                    final item = requests[index];
-                    return Card(
-                      child: Padding(
-                        padding: const EdgeInsets.all(16),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(item.employeeName, style: const TextStyle(fontWeight: FontWeight.bold)),
-                                Chip(
-                                  label: Text(item.status.toString().split('.').last.toUpperCase()),
-                                  backgroundColor: item.isApproved
-                                      ? Colors.green.shade100
-                                      : item.isRejected
-                                          ? Colors.red.shade100
-                                          : Colors.orange.shade100,
-                                ),
-                              ],
+            ref.watch(staffSalaryRequestsProvider).when(
+                  data: (requests) {
+                    if (requests.isEmpty) {
+                      return EmptyState(icon: Icons.history, title: l10n.noSalaryRequestsYet, subtitle: l10n.noSalaryRecordsSubtitle);
+                    }
+                    return ListView.builder(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: requests.length,
+                      itemBuilder: (context, index) {
+                        final item = requests[index];
+                        return Card(
+                          child: ListTile(
+                            title: Text('${l10n.amount}: Rs ${item.amount.toStringAsFixed(0)}'),
+                            subtitle: Text('${l10n.requestedDate(DateFormat.yMMMd().format(item.requestDate))}\nReason: ${item.reason}'),
+                            trailing: Chip(
+                              label: Text(item.status.name),
+                              backgroundColor: item.status == SalaryRequestStatus.approved
+                                  ? AppColors.success.withAlpha(50)
+                                  : item.status == SalaryRequestStatus.rejected
+                                      ? AppColors.error.withAlpha(50)
+                                      : AppColors.warning.withAlpha(50),
                             ),
-                            const SizedBox(height: 8),
-                            Text('Amount: Rs ${item.amount.toStringAsFixed(0)}'),
-                            const SizedBox(height: 6),
-                            Text('Requested: ${DateFormat.yMMMd().format(item.requestDate)}'),
-                            const SizedBox(height: 6),
-                            Text('Reason: ${item.reason}'),
-                            if (item.adminRemark != null) ...[
-                              const SizedBox(height: 8),
-                              Text('Admin Note: ${item.adminRemark}', style: const TextStyle(fontStyle: FontStyle.italic)),
-                            ],
-                          ],
-                        ),
-                      ),
+                          ),
+                        );
+                      },
                     );
                   },
-                );
-              },
-              loading: () => const Center(child: CircularProgressIndicator()),
-              error: (e, _) => Text('Error: $e'),
-            ),
+                  loading: () => const LoadingState(fullScreen: false),
+                  error: (e, _) => Text('Error: $e'),
+                ),
           ],
         ),
       ),

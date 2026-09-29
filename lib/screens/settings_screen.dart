@@ -36,7 +36,7 @@ class SettingsScreen extends ConsumerWidget {
       ),
     );
     if (confirmed != true) return;
-    await ref.read(authProvider.notifier).logout();
+    await ref.read(authServiceProvider).signOut();
     if (context.mounted) {
       Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(builder: (_) => const LoginScreen()),
@@ -67,13 +67,12 @@ class SettingsScreen extends ConsumerWidget {
               child: ListTile(
                 leading: CircleAvatar(
                   backgroundColor: AppColors.deepIndigo.withValues(alpha: 0.12),
-                  child: Text(
-                    (user?.name.isNotEmpty == true) ? user!.name[0].toUpperCase() : '?',
-                    style: const TextStyle(
-                      color: AppColors.deepIndigo,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
+                child: user != null
+                    ? Text(
+                        user.name.isNotEmpty ? user.name[0].toUpperCase() : '?',
+                        style: const TextStyle(color: AppColors.deepIndigo, fontWeight: FontWeight.w700),
+                      )
+                    : const Icon(Icons.person_outline, color: AppColors.deepIndigo),
                 ),
                 title: Text(
                   user?.name ?? l10n.user,
@@ -108,35 +107,20 @@ class SettingsScreen extends ConsumerWidget {
             margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
             child: Column(
               children: [
-                RadioListTile<ThemeMode>(
-                  title: Text(l10n.light),
-                  value: ThemeMode.light,
-                  groupValue: themeMode,
-                  onChanged: (value) {
-                    if (value != null) {
-                      ref.read(themeProvider.notifier).setTheme(value);
-                    }
-                  },
+                _ThemeOptionTile(
+                  title: l10n.light,
+                  selected: themeMode == ThemeMode.light,
+                  onTap: () => ref.read(themeProvider.notifier).setTheme(ThemeMode.light),
                 ),
-                RadioListTile<ThemeMode>(
-                  title: Text(l10n.dark),
-                  value: ThemeMode.dark,
-                  groupValue: themeMode,
-                  onChanged: (value) {
-                    if (value != null) {
-                      ref.read(themeProvider.notifier).setTheme(value);
-                    }
-                  },
+                _ThemeOptionTile(
+                  title: l10n.dark,
+                  selected: themeMode == ThemeMode.dark,
+                  onTap: () => ref.read(themeProvider.notifier).setTheme(ThemeMode.dark),
                 ),
-                RadioListTile<ThemeMode>(
-                  title: Text(l10n.systemDefault),
-                  value: ThemeMode.system,
-                  groupValue: themeMode,
-                  onChanged: (value) {
-                    if (value != null) {
-                      ref.read(themeProvider.notifier).setTheme(value);
-                    }
-                  },
+                _ThemeOptionTile(
+                  title: l10n.systemDefault,
+                  selected: themeMode == ThemeMode.system,
+                  onTap: () => ref.read(themeProvider.notifier).setTheme(ThemeMode.system),
                 ),
               ],
             ),
@@ -202,6 +186,31 @@ class _SettingsSectionHeader extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
       ),
+    );
+  }
+}
+
+class _ThemeOptionTile extends StatelessWidget {
+  final String title;
+  final bool selected;
+  final VoidCallback onTap;
+
+  const _ThemeOptionTile({
+    required this.title,
+    required this.selected,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: Text(title),
+      selected: selected,
+      leading: Icon(
+        selected ? Icons.radio_button_checked : Icons.radio_button_off,
+        color: selected ? AppColors.deepIndigo : AppColors.textSecondary,
+      ),
+      onTap: onTap,
     );
   }
 }

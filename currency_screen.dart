@@ -80,7 +80,7 @@ class _CurrencyScreenState extends ConsumerState<CurrencyScreen> {
                     ],
                   ),
                   selected: isSelected,
-                  selectedTileColor: AppColors.primary.withOpacity(0.05),
+                  selectedTileColor: AppColors.primary.withAlpha((255 * 0.05).round()),
                 );
               },
             ),

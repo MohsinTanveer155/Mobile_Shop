@@ -174,6 +174,8 @@
   "salaryRequests": "Salary Requests",
   "noPendingSalaryRequests": "No pending salary requests.",
   "amount": "Amount",
+  "staffName": "Staff Name",
+  "requestDate": "Request Date",
   "reject": "Reject",
   "approve": "Approve",
   "approveRequest": "Approve Request",

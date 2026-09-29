@@ -40,4 +40,3 @@ final salaryNotifierProvider = StateNotifierProvider<SalaryNotifier, void>((ref)
   final service = ref.watch(salaryServiceProvider);
   return SalaryNotifier(service);
 });
-

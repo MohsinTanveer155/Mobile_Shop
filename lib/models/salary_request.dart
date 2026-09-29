@@ -1,83 +1,91 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:uuid/uuid.dart';
 
-enum SalaryRequestStatus { pending, approved, rejected, paid }
+enum SalaryRequestStatus { pending, approved, rejected }
 
 class SalaryRequest {
   final String id;
-  final String uid;
-  final String employeeName;
-  final DateTime requestDate;
+  final String staffId;
+  final String staffName;
   final double amount;
-  final String reason;
   final SalaryRequestStatus status;
-  final String? approvedBy;
-  final DateTime? paymentDate;
+  final String? reason;
+  final DateTime requestDate; // When the request was made
   final String? adminRemark;
+  final DateTime createdAt;
+  final DateTime? updatedAt;
 
-  const SalaryRequest({
-    required this.id,
-    required this.uid,
-    required this.employeeName,
-    required this.requestDate,
+  SalaryRequest({
+    String? id,
+    required this.staffId,
+    required this.staffName,
     required this.amount,
-    required this.reason,
     this.status = SalaryRequestStatus.pending,
-    this.approvedBy,
-    this.paymentDate,
+    this.reason,
+    required this.requestDate,
     this.adminRemark,
-  });
+    required this.createdAt,
+    this.updatedAt,
+  }) : id = id ?? const Uuid().v4();
 
-  bool get isPending => status == SalaryRequestStatus.pending;
-  bool get isApproved => status == SalaryRequestStatus.approved || status == SalaryRequestStatus.paid;
-  bool get isRejected => status == SalaryRequestStatus.rejected;
-  bool get isPaid => status == SalaryRequestStatus.paid;
-
-  Map<String, dynamic> toJson() => {
-        'uid': uid,
-        'employeeName': employeeName,
-        'requestDate': requestDate,
-        'amount': amount,
-        'reason': reason,
-        'status': status.toString().split('.').last,
-        'approvedBy': approvedBy,
-        'paymentDate': paymentDate,
-        'adminRemark': adminRemark,
-      };
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'staffId': staffId,
+      'staffName': staffName,
+      'amount': amount,
+      'status': status.name,
+      'reason': reason,
+      'requestDate': Timestamp.fromDate(requestDate),
+      'adminRemark': adminRemark,
+      'createdAt': Timestamp.fromDate(createdAt),
+      'updatedAt': updatedAt != null ? Timestamp.fromDate(updatedAt!) : null,
+    };
+  }
 
   factory SalaryRequest.fromJson(Map<String, dynamic> json) {
-    final statusString = (json['status'] as String?)?.toLowerCase() ?? 'pending';
-    final status = SalaryRequestStatus.values.firstWhere(
-      (item) => item.toString().split('.').last == statusString,
-      orElse: () => SalaryRequestStatus.pending,
-    );
-
-    DateTime parseDate(Object? value) {
-      if (value == null) {
-        return DateTime.now();
-      }
-      if (value is Timestamp) {
-        return value.toDate();
-      }
-      if (value is DateTime) {
-        return value;
-      }
-      return DateTime.tryParse(value.toString()) ?? DateTime.now();
-    }
-
-    final requestDate = parseDate(json['requestDate']);
-    final paymentDate = json['paymentDate'] != null ? parseDate(json['paymentDate']) : null;
+    final requestDate = _dateTimeFromJson(json['requestDate']) ??
+        _dateTimeFromJson(json['createdAt']) ??
+        DateTime.now();
 
     return SalaryRequest(
-      id: json['id'] as String,
-      uid: json['uid'] as String,
-      employeeName: json['employeeName'] as String,
+      id: _stringFromJson(json['id']),
+      staffId: _stringFromJson(json['staffId']),
+      staffName: _stringFromJson(json['staffName'], fallback: 'Unknown staff'),
+      amount: _numberFromJson(json['amount']),
+      status: _statusFromJson(json['status']),
+      reason: _nullableStringFromJson(json['reason']),
       requestDate: requestDate,
-      amount: (json['amount'] as num).toDouble(),
-      reason: json['reason'] as String,
-      status: status,
-      approvedBy: json['approvedBy'] as String?,
-      paymentDate: paymentDate,
-      adminRemark: json['adminRemark'] as String?,
+      adminRemark: _nullableStringFromJson(json['adminRemark']),
+      createdAt: _dateTimeFromJson(json['createdAt']) ?? requestDate,
+      updatedAt: _dateTimeFromJson(json['updatedAt']),
+    );
+  }
+
+  static String _stringFromJson(dynamic value, {String fallback = ''}) {
+    return value is String ? value : fallback;
+  }
+
+  static String? _nullableStringFromJson(dynamic value) {
+    return value is String ? value : null;
+  }
+
+  static double _numberFromJson(dynamic value) {
+    if (value is num) return value.toDouble();
+    return double.tryParse(value?.toString() ?? '') ?? 0;
+  }
+
+  static DateTime? _dateTimeFromJson(dynamic value) {
+    if (value is Timestamp) return value.toDate();
+    if (value is DateTime) return value;
+    if (value is String) return DateTime.tryParse(value);
+    return null;
+  }
+
+  static SalaryRequestStatus _statusFromJson(dynamic value) {
+    return SalaryRequestStatus.values.firstWhere(
+      (status) => status.name == value,
+      orElse: () => SalaryRequestStatus.pending,
     );
   }
 }

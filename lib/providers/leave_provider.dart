@@ -6,6 +6,9 @@ import '../models/leave_request.dart';
 final leaveServiceProvider = Provider<LeaveService>((ref) => LeaveService());
 
 final myLeavesProvider = StreamProvider.family<List<LeaveRequest>, String>((ref, uid) {
+  if (uid.isEmpty) {
+    return Stream.value(const <LeaveRequest>[]);
+  }
   final service = ref.watch(leaveServiceProvider);
   return service.getMyLeaves(uid);
 });

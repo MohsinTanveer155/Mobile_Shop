@@ -48,7 +48,7 @@ class LanguageScreen extends ConsumerWidget {
                     color: AppColors.border,
                   ),
             selected: isSelected,
-            selectedTileColor: AppColors.primary.withOpacity(0.05),
+            selectedTileColor: AppColors.primary.withValues(alpha: 0.05),
           );
         },
       ),

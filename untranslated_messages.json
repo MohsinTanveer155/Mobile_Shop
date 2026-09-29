@@ -1,0 +1,106 @@
+{
+  "ar": [
+    "resetPasswordInstructions",
+    "resetLinkSentToEmail",
+    "emailAddress",
+    "emailHint",
+    "pleaseEnterPassword",
+    "registerSubtitle",
+    "fullName",
+    "phoneOptional",
+    "role",
+    "staffName",
+    "requestDate",
+    "accessDeniedMessage"
+  ],
+
+  "de": [
+    "resetPasswordInstructions",
+    "resetLinkSentToEmail",
+    "emailAddress",
+    "emailHint",
+    "pleaseEnterPassword",
+    "registerSubtitle",
+    "fullName",
+    "phoneOptional",
+    "role",
+    "staffName",
+    "requestDate",
+    "accessDeniedMessage"
+  ],
+
+  "es": [
+    "resetPasswordInstructions",
+    "resetLinkSentToEmail",
+    "emailAddress",
+    "emailHint",
+    "pleaseEnterPassword",
+    "registerSubtitle",
+    "fullName",
+    "phoneOptional",
+    "role",
+    "staffName",
+    "requestDate",
+    "accessDeniedMessage"
+  ],
+
+  "fr": [
+    "resetPasswordInstructions",
+    "resetLinkSentToEmail",
+    "emailAddress",
+    "emailHint",
+    "pleaseEnterPassword",
+    "registerSubtitle",
+    "fullName",
+    "phoneOptional",
+    "role",
+    "staffName",
+    "requestDate",
+    "accessDeniedMessage"
+  ],
+
+  "tr": [
+    "resetPasswordInstructions",
+    "resetLinkSentToEmail",
+    "emailAddress",
+    "emailHint",
+    "pleaseEnterPassword",
+    "registerSubtitle",
+    "fullName",
+    "phoneOptional",
+    "role",
+    "staffName",
+    "requestDate",
+    "accessDeniedMessage"
+  ],
+
+  "ur": [
+    "resetPasswordInstructions",
+    "resetLinkSentToEmail",
+    "emailAddress",
+    "emailHint",
+    "pleaseEnterPassword",
+    "registerSubtitle",
+    "fullName",
+    "phoneOptional",
+    "role",
+    "staffName",
+    "requestDate",
+    "accessDeniedMessage"
+  ],
+
+  "zh": [
+    "resetPasswordInstructions",
+    "resetLinkSentToEmail",
+    "emailAddress",
+    "emailHint",
+    "pleaseEnterPassword",
+    "registerSubtitle",
+    "fullName",
+    "phoneOptional",
+    "role",
+    "staffName",
+    "requestDate",
+    "accessDeniedMessage"
+  ]
+}

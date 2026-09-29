@@ -415,6 +415,12 @@ class AppLocalizationsTr extends AppLocalizations {
   String get amount => 'Tutar';
 
   @override
+  String get staffName => 'Staff Name';
+
+  @override
+  String get requestDate => 'Request Date';
+
+  @override
   String get reject => 'Reddet';
 
   @override

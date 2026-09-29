@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:intl/intl.dart';
@@ -13,8 +13,10 @@ import '../widgets/empty_state.dart';
 import '../widgets/loading_state.dart';
 import '../widgets/status_badge.dart';
 import 'orders_screen.dart';
+// NOTE: Added — ProductListScreen was used below but never imported,
+// which caused "creation_with_non_type" / undefined class errors.
+// Update this path if your product list screen lives elsewhere.
 import 'product_list_screen.dart';
-import 'sales_screen.dart';
 import 'staff/admin_leave_requests_screen.dart';
 import 'staff/admin_salary_requests_screen.dart';
 import 'staff/admin_staff_list_screen.dart';
@@ -37,7 +39,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) => _initializeNotifications());
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => _initializeNotifications(),
+    );
   }
 
   Future<void> _initializeNotifications() async {
@@ -65,10 +69,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     switch (_period) {
       case _SalesPeriod.daily:
         return service.sales
-            .where((s) =>
-                s.date.year == now.year &&
-                s.date.month == now.month &&
-                s.date.day == now.day)
+            .where(
+              (s) =>
+                  s.date.year == now.year &&
+                  s.date.month == now.month &&
+                  s.date.day == now.day,
+            )
             .fold(0.0, (sum, s) => sum + s.totalPrice);
       case _SalesPeriod.weekly:
         final start = now.subtract(Duration(days: now.weekday - 1));
@@ -90,12 +96,14 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         final spots = <FlSpot>[];
         for (var h = 0; h < 24; h += 3) {
           final total = service.sales
-              .where((s) =>
-                  s.date.year == now.year &&
-                  s.date.month == now.month &&
-                  s.date.day == now.day &&
-                  s.date.hour >= h &&
-                  s.date.hour < h + 3)
+              .where(
+                (s) =>
+                    s.date.year == now.year &&
+                    s.date.month == now.month &&
+                    s.date.day == now.day &&
+                    s.date.hour >= h &&
+                    s.date.hour < h + 3,
+              )
               .fold(0.0, (sum, s) => sum + s.totalPrice);
           spots.add(FlSpot(h.toDouble(), total));
         }
@@ -104,10 +112,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         return List.generate(7, (i) {
           final day = now.subtract(Duration(days: 6 - i));
           final total = service.sales
-              .where((s) =>
-                  s.date.year == day.year &&
-                  s.date.month == day.month &&
-                  s.date.day == day.day)
+              .where(
+                (s) =>
+                    s.date.year == day.year &&
+                    s.date.month == day.month &&
+                    s.date.day == day.day,
+              )
               .fold(0.0, (sum, s) => sum + s.totalPrice);
           return FlSpot(i.toDouble(), total);
         });
@@ -118,11 +128,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           final startDay = (i * step) + 1;
           final endDay = (startDay + step - 1).clamp(1, days);
           final total = service.sales
-              .where((s) =>
-                  s.date.year == now.year &&
-                  s.date.month == now.month &&
-                  s.date.day >= startDay &&
-                  s.date.day <= endDay)
+              .where(
+                (s) =>
+                    s.date.year == now.year &&
+                    s.date.month == now.month &&
+                    s.date.day >= startDay &&
+                    s.date.day <= endDay,
+              )
               .fold(0.0, (sum, s) => sum + s.totalPrice);
           return FlSpot(i.toDouble(), total);
         });
@@ -135,7 +147,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     final user = ref.watch(authProvider);
     final staffAsync = ref.watch(allStaffProvider);
     final pendingLeaves = ref.watch(pendingLeavesProvider);
-    final pendingSalary = ref.watch(pendingSalaryRequestsProvider);
+    final pendingSalary = ref.watch(adminSalaryRequestsProvider);
 
     final body = serviceAsync.when(
       loading: () => const LoadingState(message: 'Loading dashboard...'),
@@ -154,12 +166,24 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         );
         final todaySales = service.sales.where((s) {
           final n = DateTime.now();
-          return s.date.year == n.year && s.date.month == n.month && s.date.day == n.day;
+          return s.date.year == n.year &&
+              s.date.month == n.month &&
+              s.date.day == n.day;
         }).length;
-        final lowStock = service.products.where((p) => p.quantity <= 5).toList();
-        final recent = (List<Sale>.from(service.sales)..sort(Sale.byDateDesc)).take(5).toList();
-        final leaveCount = pendingLeaves.maybeWhen(data: (l) => l.length, orElse: () => 0);
-        final salaryCount = pendingSalary.maybeWhen(data: (l) => l.length, orElse: () => 0);
+        final lowStock = service.products
+            .where((p) => p.quantity <= 5)
+            .toList();
+        final recent = (List<Sale>.from(
+          service.sales,
+        )..sort(Sale.byDateDesc)).take(5).toList();
+        final leaveCount = pendingLeaves.maybeWhen(
+          data: (l) => l.length,
+          orElse: () => 0,
+        );
+        final salaryCount = pendingSalary.maybeWhen(
+          data: (l) => l.length,
+          orElse: () => 0,
+        );
 
         return RefreshIndicator(
           onRefresh: () async => ref.refresh(posServiceProvider),
@@ -180,7 +204,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                       crossAxisCount: cross,
                       mainAxisSpacing: 12,
                       crossAxisSpacing: 12,
-                      childAspectRatio: constraints.maxWidth > 700 ? 1.45 : 1.12,
+                      childAspectRatio: constraints.maxWidth > 700
+                          ? 1.45
+                          : 1.12,
                       children: [
                         DashboardStatCard(
                           title: 'Products',
@@ -189,7 +215,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                           iconColor: AppColors.indigoBlue,
                           onTap: () => Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (_) => const ProductListScreen()),
+                            MaterialPageRoute(
+                              builder: (_) => const ProductListScreen(),
+                            ),
                           ),
                         ),
                         DashboardStatCard(
@@ -200,12 +228,15 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                           subtitle: 'Active members',
                           onTap: () => Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (_) => const AdminStaffListScreen()),
+                            MaterialPageRoute(
+                              builder: (_) => const AdminStaffListScreen(),
+                            ),
                           ),
                         ),
                         DashboardStatCard(
                           title: 'Sales',
-                          value: 'Rs ${_salesForPeriod(service).toStringAsFixed(0)}',
+                          value:
+                              'Rs ${_salesForPeriod(service).toStringAsFixed(0)}',
                           icon: Icons.trending_up,
                           iconColor: AppColors.success,
                           subtitle: _period.name,
@@ -218,7 +249,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                           subtitle: "Today's orders",
                           onTap: () => Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (_) => const OrdersScreen()),
+                            MaterialPageRoute(
+                              builder: (_) => const OrdersScreen(),
+                            ),
                           ),
                         ),
                       ],
@@ -230,12 +263,22 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   title: 'Sales Overview',
                   trailing: SegmentedButton<_SalesPeriod>(
                     segments: const [
-                      ButtonSegment(value: _SalesPeriod.daily, label: Text('D')),
-                      ButtonSegment(value: _SalesPeriod.weekly, label: Text('W')),
-                      ButtonSegment(value: _SalesPeriod.monthly, label: Text('M')),
+                      ButtonSegment(
+                        value: _SalesPeriod.daily,
+                        label: Text('D'),
+                      ),
+                      ButtonSegment(
+                        value: _SalesPeriod.weekly,
+                        label: Text('W'),
+                      ),
+                      ButtonSegment(
+                        value: _SalesPeriod.monthly,
+                        label: Text('M'),
+                      ),
                     ],
                     selected: {_period},
-                    onSelectionChanged: (s) => setState(() => _period = s.first),
+                    onSelectionChanged: (s) =>
+                        setState(() => _period = s.first),
                     style: const ButtonStyle(
                       visualDensity: VisualDensity.compact,
                       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
@@ -281,17 +324,30 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                     ),
                   )
                 else
-                  ...lowStock.take(5).map(
+                  ...lowStock
+                      .take(5)
+                      .map(
                         (p) => Card(
                           margin: const EdgeInsets.only(bottom: 8),
                           child: ListTile(
                             leading: CircleAvatar(
-                              backgroundColor: AppColors.warning.withValues(alpha: 0.15),
-                              child: const Icon(Icons.inventory_2, color: AppColors.warning),
+                              backgroundColor: AppColors.warning.withValues(
+                                alpha: 0.15,
+                              ),
+                              child: const Icon(
+                                Icons.inventory_2,
+                                color: AppColors.warning,
+                              ),
                             ),
-                            title: Text(p.name, maxLines: 1, overflow: TextOverflow.ellipsis),
+                            title: Text(
+                              p.name,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
                             subtitle: Text(p.brand ?? 'Product'),
-                            trailing: StatusBadge.warning(label: '${p.quantity} left'),
+                            trailing: StatusBadge.warning(
+                              label: '${p.quantity} left',
+                            ),
                           ),
                         ),
                       ),
@@ -304,14 +360,22 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                       child: AppCard(
                         onTap: () => Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (_) => const AdminLeaveRequestsScreen()),
+                          MaterialPageRoute(
+                            builder: (_) => const AdminLeaveRequestsScreen(),
+                          ),
                         ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Icon(Icons.event_busy, color: AppColors.indigoBlue),
+                            const Icon(
+                              Icons.event_busy,
+                              color: AppColors.indigoBlue,
+                            ),
                             const SizedBox(height: 10),
-                            Text('$leaveCount', style: Theme.of(context).textTheme.headlineSmall),
+                            Text(
+                              '$leaveCount',
+                              style: Theme.of(context).textTheme.headlineSmall,
+                            ),
                             const Text('Leave requests'),
                           ],
                         ),
@@ -322,14 +386,22 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                       child: AppCard(
                         onTap: () => Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (_) => const AdminSalaryRequestsScreen()),
+                          MaterialPageRoute(
+                            builder: (_) => const AdminSalaryRequestsScreen(),
+                          ),
                         ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Icon(Icons.account_balance_wallet, color: AppColors.success),
+                            const Icon(
+                              Icons.account_balance_wallet,
+                              color: AppColors.success,
+                            ),
                             const SizedBox(height: 10),
-                            Text('$salaryCount', style: Theme.of(context).textTheme.headlineSmall),
+                            Text(
+                              '$salaryCount',
+                              style: Theme.of(context).textTheme.headlineSmall,
+                            ),
                             const Text('Salary requests'),
                           ],
                         ),
@@ -338,17 +410,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   ],
                 ),
                 const SizedBox(height: 20),
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton.icon(
-                    onPressed: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (_) => const SalesScreen()),
-                    ),
-                    icon: const Icon(Icons.point_of_sale),
-                    label: const Text('Start New Sale'),
-                  ),
-                ),
               ],
             ),
           ),
@@ -382,6 +443,8 @@ class _WelcomeHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final name = user?.name.split(' ').first ?? 'Admin';
+    final isAdmin = user?.isAdmin ?? false;
+
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(20),
@@ -419,7 +482,7 @@ class _WelcomeHeader extends StatelessWidget {
             radius: 26,
             backgroundColor: Colors.white24,
             child: Icon(
-              user?.isAdmin == true ? Icons.admin_panel_settings : Icons.person,
+              isAdmin ? Icons.admin_panel_settings : Icons.person,
               color: Colors.white,
             ),
           ),
@@ -486,9 +549,17 @@ class _RecentOrderTile extends StatelessWidget {
       child: ListTile(
         leading: CircleAvatar(
           backgroundColor: AppColors.deepIndigo.withValues(alpha: 0.1),
-          child: const Icon(Icons.shopping_bag, color: AppColors.deepIndigo, size: 20),
+          child: const Icon(
+            Icons.shopping_bag,
+            color: AppColors.deepIndigo,
+            size: 20,
+          ),
         ),
-        title: Text(sale.productName, maxLines: 1, overflow: TextOverflow.ellipsis),
+        title: Text(
+          sale.productName,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+        ),
         subtitle: Text(
           '${DateFormat('dd MMM').format(sale.date)} · ${sale.payment.methodName}',
         ),

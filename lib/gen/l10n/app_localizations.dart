@@ -872,6 +872,18 @@ abstract class AppLocalizations {
   /// **'Amount'**
   String get amount;
 
+  /// No description provided for @staffName.
+  ///
+  /// In en, this message translates to:
+  /// **'Staff Name'**
+  String get staffName;
+
+  /// No description provided for @requestDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Request Date'**
+  String get requestDate;
+
   /// No description provided for @reject.
   ///
   /// In en, this message translates to:

@@ -417,6 +417,12 @@ class AppLocalizationsFr extends AppLocalizations {
   String get amount => 'Montant';
 
   @override
+  String get staffName => 'Staff Name';
+
+  @override
+  String get requestDate => 'Request Date';
+
+  @override
   String get reject => 'Rejeter';
 
   @override

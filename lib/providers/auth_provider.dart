@@ -1,124 +1,67 @@
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
+import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../core/di/injection_container.dart';
-import '../core/usecase/usecase.dart';
-import '../features/auth/domain/usecases/login_usecase.dart';
-import '../features/auth/domain/usecases/logout_usecase.dart';
-import '../features/auth/domain/usecases/reset_password_usecase.dart';
-import '../features/auth/domain/usecases/signup_usecase.dart';
-import '../features/auth/domain/usecases/watch_auth_state_usecase.dart';
-import '../features/auth/presentation/mappers/user_mapper.dart';
 import '../models/user.dart';
+import '../services/auth_service.dart';
 
-/// Compatibility bridge — existing screens keep using [authProvider] / [User].
-/// Internally delegates to Clean Architecture use cases from GetIt.
-final authProvider = StateNotifierProvider<AuthNotifier, User?>((ref) {
-  return AuthNotifier(
-    loginUseCase: sl<LoginUseCase>(),
-    signupUseCase: sl<SignupUseCase>(),
-    logoutUseCase: sl<LogoutUseCase>(),
-    resetPasswordUseCase: sl<ResetPasswordUseCase>(),
-    watchAuthStateUseCase: sl<WatchAuthStateUseCase>(),
-  );
+final firebaseAuthProvider =
+    Provider<firebase_auth.FirebaseAuth>((ref) => firebase_auth.FirebaseAuth.instance);
+
+final authServiceProvider = Provider<AuthService>((ref) => AuthService());
+
+final authStateChangesProvider = StreamProvider<firebase_auth.User?>((ref) {
+  return ref.watch(firebaseAuthProvider).authStateChanges();
 });
 
 class AuthNotifier extends StateNotifier<User?> {
-  AuthNotifier({
-    required LoginUseCase loginUseCase,
-    required SignupUseCase signupUseCase,
-    required LogoutUseCase logoutUseCase,
-    required ResetPasswordUseCase resetPasswordUseCase,
-    required WatchAuthStateUseCase watchAuthStateUseCase,
-  })  : _loginUseCase = loginUseCase,
-        _signupUseCase = signupUseCase,
-        _logoutUseCase = logoutUseCase,
-        _resetPasswordUseCase = resetPasswordUseCase,
-        _watchAuthStateUseCase = watchAuthStateUseCase,
-        super(null) {
-    _subscription = _watchAuthStateUseCase().listen((entity) {
-      state = entity?.toAppUser();
+  final AuthService _authService;
+  StreamSubscription<User?>? _subscription;
+
+  AuthNotifier(this._authService) : super(null) {
+    _subscription = _authService.userChanges.listen((user) {
+      state = user;
     });
   }
 
-  final LoginUseCase _loginUseCase;
-  final SignupUseCase _signupUseCase;
-  final LogoutUseCase _logoutUseCase;
-  final ResetPasswordUseCase _resetPasswordUseCase;
-  final WatchAuthStateUseCase _watchAuthStateUseCase;
-  StreamSubscription? _subscription;
-
-  Future<String?> login(String email, String password) async {
-    final result = await _loginUseCase(
-      LoginParams(email: email, password: password),
-    );
-    return result.fold(
-      onFailure: (failure) {
-        debugPrint('AuthNotifier login: ${failure.message}');
-        return failure.message;
-      },
-      onSuccess: (user) {
-        state = user.toAppUser();
-        return null;
-      },
-    );
+  Future<User?> login(String email, String password) {
+    return _authService.signInWithEmailAndPassword(email, password);
   }
 
-  Future<void> signup({
+  Future<User?> signup({
     required String email,
     required String password,
     required String name,
     String? phone,
-    String role = 'staff',
+    required String role,
     double? salary,
-  }) async {
-    final result = await _signupUseCase(
-      SignupParams(
-        email: email,
-        password: password,
-        name: name,
-        phone: phone,
-        role: role,
-        salary: salary,
-      ),
-    );
-    result.fold(
-      onFailure: (failure) {
-        throw Exception(failure.message);
-      },
-      onSuccess: (user) {
-        state = user.toAppUser();
-      },
+  }) {
+    final normalizedRole =
+        role.toLowerCase() == 'admin' ? 'admin' : 'employee';
+    return _authService.createUserWithEmailAndPassword(
+      email: email,
+      password: password,
+      name: name,
+      phone: phone,
+      role: normalizedRole,
+      salary: salary,
     );
   }
 
   Future<void> logout() async {
-    final result = await _logoutUseCase(const NoParams());
-    result.fold(
-      onFailure: (failure) {
-        debugPrint('AuthNotifier logout: ${failure.message}');
-        throw Exception(failure.message);
-      },
-      onSuccess: (_) {
-        state = null;
-      },
-    );
+    await _authService.signOut();
+    state = null;
   }
 
   Future<String?> resetPassword(String email) async {
-    final result = await _resetPasswordUseCase(ResetPasswordParams(email));
-    return result.fold(
-      onFailure: (failure) => failure.message,
-      onSuccess: (_) => null,
-    );
+    try {
+      await _authService.sendPasswordResetEmail(email.trim());
+      return null;
+    } catch (e) {
+      return e.toString();
+    }
   }
-
-  bool get isLoggedIn => _watchAuthStateUseCase.isLoggedIn;
-  bool get isAdmin => state?.isAdmin ?? false;
-  bool get isStaff => state?.isStaff ?? false;
-  bool get isEmployee => state?.isEmployee ?? false;
 
   @override
   void dispose() {
@@ -126,3 +69,8 @@ class AuthNotifier extends StateNotifier<User?> {
     super.dispose();
   }
 }
+
+final authProvider = StateNotifierProvider<AuthNotifier, User?>((ref) {
+  ref.keepAlive();
+  return AuthNotifier(ref.watch(authServiceProvider));
+});

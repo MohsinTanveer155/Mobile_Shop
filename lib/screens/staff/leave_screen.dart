@@ -55,14 +55,27 @@ class _LeaveScreenState extends ConsumerState<LeaveScreen> {
       return;
     }
 
-    await ref.read(leaveNotifierProvider.notifier).applyLeave(
-          uid: user.id,
-          staffName: user.name,
-          type: _type!.name,
-          startDate: _startDate!,
-          endDate: _endDate!,
-          reason: _reasonController.text.trim(),
+    try {
+      await ref.read(leaveNotifierProvider.notifier).applyLeave(
+            uid: user.id,
+            staffName: user.name,
+            type: _type!.name,
+            startDate: _startDate!,
+            endDate: _endDate!,
+            reason: _reasonController.text.trim(),
+          );
+    } catch (error) {
+      if (mounted) {
+        setState(() => _isLoading = false);
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Unable to submit leave: $error'),
+            backgroundColor: AppColors.error,
+          ),
         );
+      }
+      return;
+    }
 
     if (!mounted) return;
     setState(() => _isLoading = false);

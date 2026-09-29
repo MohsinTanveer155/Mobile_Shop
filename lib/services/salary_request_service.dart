@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import '../models/salary_request.dart';
 import 'firestore_error_handler.dart';
 
@@ -13,17 +14,25 @@ class SalaryRequestService {
     required String reason,
   }) async {
     return runFirestoreOperation(() async {
+      final currentUser = FirebaseAuth.instance.currentUser;
+      if (currentUser == null || currentUser.uid != uid) {
+        throw FirebaseAuthException(
+          code: 'unauthenticated',
+          message: 'You must be signed in to submit a salary request.',
+        );
+      }
+
       final docRef = _firestore.collection(_collection).doc();
       await docRef.set({
-        'uid': uid,
-        'employeeName': employeeName,
+        'id': docRef.id,
+        'staffId': currentUser.uid,
+        'staffName': employeeName,
         'requestDate': FieldValue.serverTimestamp(),
         'amount': amount,
         'reason': reason,
         'status': 'pending',
         'adminRemark': null,
-        'approvedBy': null,
-        'paymentDate': null,
+        'createdAt': FieldValue.serverTimestamp(),
       });
       return docRef.id;
     }, context: 'SalaryRequestService.applySalaryRequest');
@@ -32,7 +41,7 @@ class SalaryRequestService {
   Stream<List<SalaryRequest>> getMySalaryRequests(String uid) {
     return _firestore
         .collection(_collection)
-        .where('uid', isEqualTo: uid)
+      .where('staffId', isEqualTo: uid)
         .orderBy('requestDate', descending: true)
         .snapshots()
         .handleError((error, stackTrace) {

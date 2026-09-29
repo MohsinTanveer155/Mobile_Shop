@@ -419,6 +419,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String get amount => 'Importe';
 
   @override
+  String get staffName => 'Staff Name';
+
+  @override
+  String get requestDate => 'Request Date';
+
+  @override
   String get reject => 'Rechazar';
 
   @override

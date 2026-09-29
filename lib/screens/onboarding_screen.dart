@@ -66,15 +66,17 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                       final emoji = AppConstants.languageFlagEmojis[code] ?? '🌐';
                       final selected = currentLocale.languageCode == code;
 
-                      return RadioListTile<String>(
-                        value: code,
-                        groupValue: currentLocale.languageCode,
-                        onChanged: (_) {
-                          ref.read(localeProvider.notifier).setLocale(locale);
-                        },
+                      return ListTile(
                         title: Text('$emoji $english'),
                         subtitle: Text(native),
                         selected: selected,
+                        leading: Icon(
+                          selected ? Icons.radio_button_checked : Icons.radio_button_off,
+                          color: selected ? AppColors.primary : AppColors.textSecondary,
+                        ),
+                        onTap: () {
+                          ref.read(localeProvider.notifier).setLocale(locale);
+                        },
                       );
                     }).toList(),
                   ),
@@ -94,19 +96,21 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                   child: ListView(
                     children: AppConstants.supportedCurrencies.map((currency) {
                       final selected = currentCurrency.code == currency.code;
-                      return RadioListTile<String>(
-                        value: currency.code,
-                        groupValue: currentCurrency.code,
-                        onChanged: (_) {
-                          ref.read(currencyProvider.notifier).setCurrency(currency);
-                        },
+                      return ListTile(
                         title: Text(currency.code),
                         subtitle: Text(currency.name),
-                        secondary: Text(
+                        trailing: Text(
                           currency.symbol,
                           style: const TextStyle(fontSize: 18),
                         ),
                         selected: selected,
+                        leading: Icon(
+                          selected ? Icons.radio_button_checked : Icons.radio_button_off,
+                          color: selected ? AppColors.primary : AppColors.textSecondary,
+                        ),
+                        onTap: () {
+                          ref.read(currencyProvider.notifier).setCurrency(currency);
+                        },
                       );
                     }).toList(),
                   ),

@@ -27,10 +27,33 @@ class StaffNotifier extends StateNotifier<void> {
   Future<void> updateProfile(String uid, Map<String, dynamic> updates) async {
     await _service.updateStaffProfile(uid, updates);
   }
+
+  Future<User> createStaff({
+    required String name,
+    required String email,
+    required String password,
+    String? phone,
+    double? salary,
+  }) {
+    return _service.createStaff(
+      name: name,
+      email: email,
+      password: password,
+      phone: phone,
+      salary: salary,
+    );
+  }
+
+  Future<void> deleteProfile(String uid) {
+    return _service.deleteStaffProfile(uid);
+  }
 }
 
 final staffNotifierProvider = StateNotifierProvider<StaffNotifier, void>((ref) {
   final service = ref.watch(staffServiceProvider);
   return StaffNotifier(service);
 });
+
+/// Alias used by admin staff management screens.
+final staffProvider = staffNotifierProvider;
 

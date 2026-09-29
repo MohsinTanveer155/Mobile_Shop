@@ -5,11 +5,17 @@ import '../services/attendance_service.dart';
 final attendanceServiceProvider = Provider<AttendanceService>((ref) => AttendanceService());
 
 final todayAttendanceProvider = StreamProvider.family<AttendanceRecord?, String>((ref, uid) {
+  if (uid.isEmpty) {
+    return Stream.value(null);
+  }
   final service = ref.watch(attendanceServiceProvider);
   return service.getTodayAttendance(uid);
 });
 
 final attendanceHistoryProvider = StreamProvider.family<List<AttendanceRecord>, String>((ref, uid) {
+  if (uid.isEmpty) {
+    return Stream.value(const <AttendanceRecord>[]);
+  }
   final service = ref.watch(attendanceServiceProvider);
   return service.getAttendanceHistory(uid);
 });

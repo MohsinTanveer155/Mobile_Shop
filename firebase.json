@@ -24,6 +24,6 @@
     "database": "(default)",
     "location": "asia-south1",
     "rules": "firestore.rules",
-    "indexes": "    i"
+    "indexes": "firestore.indexes.json"
   }
 }

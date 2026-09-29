@@ -158,7 +158,7 @@ class _AdminMorePage extends ConsumerWidget {
   const _AdminMorePage();
 
   Future<void> _logout(WidgetRef ref, BuildContext context) async {
-    await ref.read(authProvider.notifier).logout();
+    await ref.read(authServiceProvider).signOut();
     if (context.mounted) {
       Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(builder: (_) => const LoginScreen()),

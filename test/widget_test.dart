@@ -7,15 +7,31 @@
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:mobile_shop/main.dart';
+import 'package:mobile_shop/providers/settings_provider.dart';
+import 'package:mobile_shop/services/preferences_service.dart';
 
 void main() {
-  testWidgets('App loads with home screen title', (WidgetTester tester) async {
-    await tester.pumpWidget(const ProviderScope(child: MobileShopApp()));
-    await tester.pumpAndSettle();
+  testWidgets('App loads with onboarding screen', (WidgetTester tester) async {
+    SharedPreferences.setMockInitialValues({});
+    final preferencesService = PreferencesService();
+    await preferencesService.init();
 
-    expect(find.text('Mobile Shop POS'), findsOneWidget);
-    expect(find.text('Dashboard'), findsOneWidget);
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          preferencesServiceProvider.overrideWithValue(preferencesService),
+        ],
+        child: const MobileShopApp(),
+      ),
+    );
+    await tester.pump();
+    await tester.pump(const Duration(seconds: 2));
+    await tester.pump();
+
+    expect(find.text('Mobile Shop'), findsOneWidget);
+    expect(find.text('Welcome to Mobile Shop'), findsOneWidget);
   });
 }

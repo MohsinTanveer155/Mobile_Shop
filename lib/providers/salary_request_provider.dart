@@ -1,61 +1,22 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../models/salary_request.dart';
-import '../services/salary_request_service.dart';
+import 'auth_provider.dart';
+import 'salary_provider.dart';
 
-final salaryRequestServiceProvider = Provider<SalaryRequestService>((ref) => SalaryRequestService());
+final staffSalaryRequestsProvider = StreamProvider<List<SalaryRequest>>((ref) {
+  final user = ref.watch(authProvider);
+  final salaryService = ref.watch(salaryServiceProvider);
 
-final mySalaryRequestsProvider = StreamProvider.family<List<SalaryRequest>, String>((ref, uid) {
-  final service = ref.watch(salaryRequestServiceProvider);
-  return service.getMySalaryRequests(uid);
-});
-
-final pendingSalaryRequestsProvider = StreamProvider<List<SalaryRequest>>((ref) {
-  final service = ref.watch(salaryRequestServiceProvider);
-  return service.getPendingSalaryRequests();
-});
-
-final allSalaryRequestsProvider = StreamProvider<List<SalaryRequest>>((ref) {
-  final service = ref.watch(salaryRequestServiceProvider);
-  return service.getAllSalaryRequests();
-});
-
-class SalaryRequestNotifier extends StateNotifier<void> {
-  final SalaryRequestService _service;
-
-  SalaryRequestNotifier(this._service) : super(null);
-
-  Future<String> sendRequest({
-    required String uid,
-    required String employeeName,
-    required double amount,
-    required String reason,
-  }) async {
-    return await _service.applySalaryRequest(
-      uid: uid,
-      employeeName: employeeName,
-      amount: amount,
-      reason: reason,
-    );
+  if (user == null) {
+    return Stream.value([]);
   }
-
-  Future<void> updateStatus(
-    String requestId,
-    String status, {
-    String? approvedBy,
-    String? adminRemark,
-    DateTime? paymentDate,
-  }) async {
-    await _service.updateSalaryRequestStatus(
-      requestId,
-      status,
-      approvedBy: approvedBy,
-      adminRemark: adminRemark,
-      paymentDate: paymentDate,
-    );
-  }
-}
-
-final salaryRequestNotifierProvider = StateNotifierProvider<SalaryRequestNotifier, void>((ref) {
-  final service = ref.watch(salaryRequestServiceProvider);
-  return SalaryRequestNotifier(service);
+  return salaryService.getStaffSalaryRequestsStream(user.id);
 });
+
+final adminSalaryRequestsProvider = StreamProvider<List<SalaryRequest>>((ref) {
+  final salaryService = ref.watch(salaryServiceProvider);
+  return salaryService.getAdminSalaryRequestsStream();
+});
+
+/// Pending salary requests for admin dashboard summaries.
+final pendingSalaryRequestsProvider = adminSalaryRequestsProvider;

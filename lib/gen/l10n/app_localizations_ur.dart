@@ -417,6 +417,12 @@ class AppLocalizationsUr extends AppLocalizations {
   String get amount => 'رقم';
 
   @override
+  String get staffName => 'Staff Name';
+
+  @override
+  String get requestDate => 'Request Date';
+
+  @override
   String get reject => 'مسترد';
 
   @override

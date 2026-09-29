@@ -2,8 +2,203 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write;
+
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // Collection: users
+    // Document ID: {userId}
+    // Fields:
+    //   - email: string (required)
+    //   - displayName: string (optional)
+    //   - role: string (required, 'admin' or 'staff') - NOTE: This is for reference, actual role check uses custom claims.
+    //   - createdAt: timestamp (required)
+    //
+    // Collection: salary_requests
+    // Document ID: {requestId}
+    // Fields:
+    //   - id: string (required, immutable)
+    //   - staffId: string (required, immutable) - The UID of the user making the request.
+    //   - staffName: string (required) - The name of the staff.
+    //   - amount: number (required, > 0)
+    //   - status: string (required, 'pending', 'approved', 'rejected')
+    //   - requestDate: timestamp (required, immutable)
+    //   - adminRemark: string (optional, max 200 chars)
+    //   - createdAt: timestamp (required, immutable)
+    //   - updatedAt: timestamp (optional)
+    //
+    // ===============================================================
+
+
+    // ===============================================================
+    // Helper Functions
+    // ===============================================================
+
+    // Check if the user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // Admin status is controlled by the users profile or an admin custom claim.
+    function isAdmin() {
+      return isAuthenticated() &&
+             (request.auth.token.role == 'admin' ||
+              (exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+               (get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin' ||
+                get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true)));
+    }
+
+    function isStaff() {
+      return isAuthenticated() &&
+             exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+             get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['employee', 'staff'] &&
+             get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin != true;
+    }
+
+    // Check if the user owns the resource (for user-owned documents)
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // Validate common fields for salary requests
+    function isValidSalaryRequest(data) {
+      return data.id is string && data.id.size() > 0 &&
+             data.staffId is string && data.staffId.size() > 0 &&
+             data.staffName is string && data.staffName.size() > 0 && data.staffName.size() < 100 &&
+             data.amount is number && data.amount > 0 &&
+             data.status is string && data.status in ['pending', 'approved', 'rejected'] &&
+             data.requestDate is timestamp &&
+             data.createdAt is timestamp &&
+             // Optional fields
+             (!('reason' in data) || data.reason == null ||
+              (data.reason is string && data.reason.size() <= 500)) &&
+             (!('adminRemark' in data) || data.adminRemark == null ||
+              (data.adminRemark is string && data.adminRemark.size() < 200)) &&
+             (!('updatedAt' in data) || data.updatedAt == null ||
+              data.updatedAt is timestamp);
+    }
+
+    // ===============================================================
+    // Collection Rules
+    // ===============================================================
+
+    // --- Users Collection ---
+    // Allow authenticated users to read their own profile.
+    // Allow admins to read any user's profile (needed for staffName lookup, etc.).
+    // Allow users to create their own profile.
+    // Allow users to update their own profile (e.g., displayName), but not their role.
+    match /users/{userId} {
+      allow read: if isOwner(userId) || isAdmin();
+      allow create: if (isOwner(userId) || isAdmin()) &&
+                        request.resource.data.keys().hasAll(['email', 'createdAt']) &&
+                        (isAdmin() || request.resource.data.email == request.auth.token.email) &&
+                        request.resource.data.createdAt == request.time &&
+                        (!('role' in request.resource.data) ||
+                         request.resource.data.role in ['employee', 'admin']) &&
+                        (!('isAdmin' in request.resource.data) ||
+                         request.resource.data.isAdmin == (request.resource.data.role == 'admin'));
+      allow update: if isAdmin() &&
+                        resource.data.createdAt == request.resource.data.createdAt &&
+                        resource.data.role == request.resource.data.role &&
+                        resource.data.isAdmin == request.resource.data.isAdmin &&
+                        request.resource.data.keys().hasOnly([
+                          'name', 'email', 'phone', 'role', 'isAdmin',
+                          'salary', 'joiningDate', 'createdAt'
+                        ]);
+      allow delete: if isAdmin();
+    }
+
+    // --- Firebase Backups Collection ---
+    // Backup documents contain the complete POS data payload and are admin-only.
+    // The app uses collection.get(), document.get(), and document.set().
+    match /backups/{backupId} {
+      allow get, list: if isAdmin();
+      allow create, update, delete: if isAdmin();
+    }
+
+    // --- Salary Requests Collection ---
+    match /salary_requests/{requestId} {
+      // Staff can create their own salary requests
+      allow create: if isStaff() &&
+                        request.resource.data.id == requestId &&
+                        isOwner(request.resource.data.staffId) &&
+                        request.resource.data.status == 'pending' &&
+                        request.resource.data.requestDate == request.time &&
+                        request.resource.data.createdAt == request.time &&
+                        isValidSalaryRequest(request.resource.data);
+
+      // Staff can read their own salary requests
+      allow get, list: if isOwner(resource.data.staffId);
+
+      // Admin can read all salary requests
+      allow get, list: if isAdmin();
+
+      // Admin can update salary request status and add remarks
+      allow update: if isAdmin() &&
+                        // Ensure immutable fields are not changed by admin
+                        resource.data.id == request.resource.data.id &&
+                        resource.data.staffId == request.resource.data.staffId &&
+                        resource.data.requestDate == request.resource.data.requestDate &&
+                        resource.data.createdAt == request.resource.data.createdAt &&
+                        // Only allow status, adminRemark, updatedAt to change
+                        request.resource.data.keys().hasOnly([
+                          'id', 'staffId', 'staffName', 'amount', 'status', 'reason',
+                          'requestDate', 'adminRemark', 'createdAt', 'updatedAt',
+                          'approvedBy', 'paymentDate'
+                        ]) &&
+                        // Status can only change from pending to approved/rejected
+                        resource.data.status == 'pending' &&
+                        request.resource.data.status in ['approved', 'rejected'] &&
+                        request.resource.data.updatedAt == request.time &&
+                        isValidSalaryRequest(request.resource.data);
+
+      // Only admins may delete salary requests through the existing admin API.
+      allow delete: if isAdmin();
+    }
+
+    // --- Salary Records Collection ---
+    match /salary_records/{recordId} {
+      allow create, update, delete: if isAdmin();
+      allow get, list: if isAdmin() ||
+                       (isAuthenticated() && resource.data.uid == request.auth.uid);
+    }
+
+    // --- Leave Requests Collection ---
+    match /leave_requests/{leaveId} {
+      allow create: if isAuthenticated() &&
+                    request.resource.data.uid == request.auth.uid &&
+                    request.resource.data.status == 'pending' &&
+                    request.resource.data.id == leaveId &&
+                    request.resource.data.keys().hasOnly([
+                      'id', 'uid', 'staffName', 'type', 'startDate', 'endDate',
+                      'reason', 'status', 'adminRemark', 'totalDays'
+                    ]);
+      allow get, list: if isAdmin() ||
+                       (isAuthenticated() && resource.data.uid == request.auth.uid);
+      allow update: if isAdmin() &&
+                    resource.data.uid == request.resource.data.uid &&
+                    resource.data.id == request.resource.data.id &&
+                    request.resource.data.keys().hasOnly([
+                      'id', 'uid', 'staffName', 'type', 'startDate', 'endDate',
+                      'reason', 'status', 'approvedBy', 'approvedAt',
+                      'adminRemark', 'totalDays'
+                    ]) &&
+                    request.resource.data.status in ['approved', 'rejected'];
+      allow delete: if false;
+    }
+
+    // --- Attendance Collection ---
+    match /attendance/{userId}/days/{dayId} {
+      allow get, list: if isAdmin() || isOwner(userId);
+      allow create, update: if isOwner(userId) &&
+                            request.resource.data.uid == request.auth.uid &&
+                            request.resource.data.date == dayId &&
+                            request.resource.data.keys().hasOnly([
+                              'uid', 'date', 'checkIn', 'checkOut',
+                              'status', 'totalHours'
+                            ]);
+      allow delete: if false;
     }
   }
 }

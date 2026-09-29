@@ -407,6 +407,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get amount => '金额';
 
   @override
+  String get staffName => 'Staff Name';
+
+  @override
+  String get requestDate => 'Request Date';
+
+  @override
   String get reject => '拒绝';
 
   @override

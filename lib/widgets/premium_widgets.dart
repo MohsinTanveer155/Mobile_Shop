@@ -58,7 +58,7 @@ class AppGradientButton extends StatelessWidget {
             gradient: LinearGradient(colors: colors, begin: Alignment.topLeft, end: Alignment.bottomRight),
             borderRadius: BorderRadius.circular(16),
             boxShadow: [
-              BoxShadow(color: colors.last.withOpacity(0.25), blurRadius: 20, offset: const Offset(0, 8)),
+              BoxShadow(color: colors.last.withValues(alpha: 0.25), blurRadius: 20, offset: const Offset(0, 8)),
             ],
           ),
           padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
@@ -97,7 +97,7 @@ class AppStatCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(24),
         border: Border.all(color: AppColors.border),
         boxShadow: [
-          BoxShadow(color: Colors.black.withOpacity(0.03), blurRadius: 24, offset: const Offset(0, 12)),
+          BoxShadow(color: Colors.black.withValues(alpha: 0.03), blurRadius: 24, offset: const Offset(0, 12)),
         ],
       ),
       child: Column(
@@ -106,7 +106,7 @@ class AppStatCard extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: accent.withOpacity(0.12),
+              color: accent.withValues(alpha: 0.12),
               shape: BoxShape.circle,
             ),
             child: Icon(icon, color: accent, size: 24),
@@ -154,7 +154,7 @@ class QuickActionCard extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(14),
                 decoration: BoxDecoration(
-                  color: color.withOpacity(0.15),
+                  color: color.withValues(alpha: 0.15),
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Icon(icon, color: color, size: 22),
@@ -187,7 +187,7 @@ class PremiumPanel extends StatelessWidget {
         borderRadius: BorderRadius.circular(28),
         border: Border.all(color: AppColors.border),
         boxShadow: [
-          BoxShadow(color: Colors.black.withOpacity(0.04), blurRadius: 24, offset: const Offset(0, 12)),
+          BoxShadow(color: Colors.black.withValues(alpha: 0.04), blurRadius: 24, offset: const Offset(0, 12)),
         ],
       ),
       child: child,
